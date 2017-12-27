@@ -1,0 +1,48 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+
+/* a reset to the padding and margin that a web navigator sometimes sets to some elements
+   box-sizing: border-box == border and padding are included in the the width or height of the box*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* font set up through inheritance - some properties are inherited, like the font - */
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  padding: 30px; /* content padding */
+}
+
+/* polygons: https://bennettfeely.com/clippy/*/
+
+.header {
+  height: 95vh;   /* 95% of the view port height */
+  /* direction starting a light color from the right, and ending with darker tone on the bottom*/
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(126, 213, 111, 0.8),  /* light green */
+    rgba(40, 180, 134, 0.8)),  /* dark green */
+    url(../img/hero.jpg);  /* a colored layer is defined on top of our hero image */
+  background-size: cover;  /* fit the image to the bounding box */
+  background-position: top;  /* fix the "top" of the image */
+  /* x y, x y, x y, x y, x y square corners - starting from a clockwise direction in the top left corner- */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%)  /* note that the height of our 3ird point is dinamic*/
+}
+
+
