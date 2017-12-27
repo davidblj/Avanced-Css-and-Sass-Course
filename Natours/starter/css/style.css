@@ -42,7 +42,35 @@ body {
   background-size: cover;  /* fit the image to the bounding box */
   background-position: top;  /* fix the "top" of the image */
   /* x y, x y, x y, x y, x y square corners - starting from a clockwise direction in the top left corner- */
+  position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%)  /* note that the height of our 3ird point is dinamic*/
 }
 
+.logo-box {
+  position: absolute;
+  top: 40px;    /* starting from parent with a relative position -header set to relative-  */
+  left: 40px;
+}
 
+.logo {
+  height: 35px;  /* the width scales acordingly */
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.heading-primary-main {
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+}
