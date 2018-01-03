@@ -56,6 +56,13 @@ body {
   height: 35px;  /* the width scales acordingly */
 }
 
+.text-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);   /* -50 of the width, and height of this element, starting from the top left corner*/
+}
+
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
