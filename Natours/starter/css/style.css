@@ -58,7 +58,7 @@ body {
 
 .text-box {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);   /* -50 of the width, and height of this element, starting from the top left corner*/
 }
@@ -73,6 +73,16 @@ body {
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px;
+
+  /* animation specification */
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out; /* animation style: starts with a faster timing, and the it ends with an slower timing*/
+
+  /*
+  animation-iteration-count: 3;
+  animation-delay: 3s;
+  */
 }
 
 .heading-primary-sub {
@@ -80,4 +90,50 @@ body {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 17.4px;
+
+  /* animation shorthand, we can use this animation on any element and state "logo:hover" */
+  animation: moveInRight 1s ease-out;
+
+  /* remove shaking on our heading animation */
+  backface-visibility: hidden;
 }
+
+/* a browser is optimized to animate the opacity and the transform property */
+@keyframes moveInLeft {
+  /* the porcetange is the time duraction */
+  0% {
+    opacity: 0;
+    transform: translateX(-100px)
+  }
+
+  /* bounce to the right */
+  80% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  /* the porcetange is the time duraction */
+  0% {
+    opacity: 0;
+    transform: translateX(100px)
+  }
+
+  /* bounce to the right */
+  80% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+
