@@ -152,6 +152,19 @@ body {
     }
 }
 
+@keyframes moveInButton {
+    /* the porcetange is the time duraction */
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* pseudo class:  element selection on special conditions.
    we are going to add animations with pseudo classes. animations
    are relative to the initial state, take a look at .btn:hover hover and
@@ -171,24 +184,72 @@ body {
        This block is threated as it was a text box */
     display: inline-block;
     border-radius: 100px;
+
     /* effects are going to be applied to whatever property is changed on this element
     (or changes to  the initial state)*/
     transition: all .2s;
+    position: relative;
 }
 
 .btn:hover {
     transform: translateY(-3px);
+
     /* x y depth color (with black transparency) */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2)
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 .btn:active {
     transform: translateY(1px);
+
     /* less blur and less shadow  */
-    box-shadow: 0 5px 10px rgba(0,0,0,0.2)
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
 }
 
 .btn-white {
     background-color: #fff;
     color: #777;
+}
+
+/* "after" adds a virtual element after the selected element */
+.btn::after {
+    /* content property must be present to show the element  */
+    content: "";
+    display: inline-block;
+
+    /* this element is threated as a child (parent inheritance).*/
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+
+    /* there is an offset on this element, and so we used absolute positioning
+       with our relative parent as the btn class*/
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    /* put this element behind the parent element */
+    z-index: -1;
+
+    /* every property that changes our after element, will be animated */
+    transition: all .4s;
+}
+
+/* this class targets the same virtual element that .btn::after does */
+.btn-white::after {
+    background-color: #fff;
+}
+
+/* scale our after element when the buttons enters in hover state */
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    /* last value is a delay */
+    animation: moveInButton .5s ease-out .75s;
+
+    /* to hide our button when the animation has not even started, we set the style 
+       of the last state of the animation to this button */
+    animation-fill-mode: backwards;
 }
