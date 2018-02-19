@@ -8,12 +8,15 @@ Dark green: #28b485
 */
 /* a reset to the padding and margin that a web navigator sometimes sets to some elements
    box-sizing: border-box == border and padding are included in the the width or height of the box*/
-* {
+*,
+*::after
+*::before {
     margin: 0;
     padding: 0;
+
     /* box-sizing has been moved to the body as an inherited property. Since This
     value does not support inheritance by default, we must set it as an inherited property
-    on all elements*/
+    on all elements. This is more maintainable, now, a module can overwrite this property*/
     box-sizing: inherit;
 }
 
@@ -22,14 +25,15 @@ Dark green: #28b485
    on the root font size. And so 1 rem = 10%. Changing this property, will change the font size for every element with a rem value.
    Our code is way more maintainable.  */
 html {
-  /* 100% ~ 16px -> 10px ? */
-  font-size: 62.5%;
+    /* 100% ~ 16px -> 10px ? */
+    font-size: 62.5%;
 }
 
 /* font set up through inheritance - some properties are inherited, like the font - */
 body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
+
     /* font-size: 16px; */
     line-height: 1.7;
     color: #777;
@@ -58,11 +62,13 @@ body {
 
     /* a polygon drawing: x y, x y, x y, x y, x y  */
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
     /* note that the height of our 3ird point is dinamic*/
 }
 
 .logo-box {
     position: absolute;
+
     /* fix the position of this box to the nearest parent with a relative position -header set to relative-  */
     top: 4rem;
     left: 4rem;
@@ -70,6 +76,7 @@ body {
 
 .logo {
     height: 35px;
+
     /* the width is scaled acordingly */
 }
 
