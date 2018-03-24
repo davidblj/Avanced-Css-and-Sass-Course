@@ -1,0 +1,14 @@
+{
+  "name": "starter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "live": "live-server",
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "live-server": "^1.2.0",
+    "node-sass": "^4.8.3"
+  }
+}

@@ -1,271 +1,140 @@
-/*
-COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
-*/
-/* a reset to the padding and margin that a web navigator sometimes sets to some elements
-   box-sizing: border-box == border and padding are included in the the width or height of the box*/
 *,
 *::after
 *::before {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
 
-    /* box-sizing has been moved to the body as an inherited property. Since This
-    value does not support inheritance by default, we must set it as an inherited property
-    on all elements. This is more maintainable, now, a module can overwrite this property*/
-    box-sizing: inherit;
-}
-
-/* font-size is a property with inheritance.
-   The idea is to use a "rem" unit. A rem unit is based
-   on the root font size. And so 1 rem = 10%. Changing this property, will change the font size for every element with a rem value.
-   Our code is way more maintainable.  */
 html {
-    /* 100% ~ 16px -> 10px ? */
-    font-size: 62.5%;
-}
+  font-size: 62.5%; }
 
-/* font set up through inheritance - some properties are inherited, like the font - */
 body {
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem;
+  box-sizing: border-box; }
 
-    /* font-size: 16px; */
-    line-height: 1.7;
-    color: #777;
-
-    /* content padding */
-    padding: 3rem;
-    box-sizing: border-box;
-}
-
-/* polygons: https://bennettfeely.com/clippy/*/
 .header {
-    height: 95vh;
-    position: relative;
+  height: 95vh;
+  position: relative;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
 
-    /* 95% of the view port height */
-    /* color direction: starting a light color from the right, and ending with darker tone on the bottom. This is a layer on top on our image*/
-    background-image: linear-gradient(
-    to right bottom,
-    rgba(126, 213, 111, 0.8),  /* light green */
-    rgba(40, 180, 134, 0.8)),  /* dark green */
-    url(../img/hero.jpg);
+.header__logo-box {
+  position: absolute;
+  top: 4rem;
+  left: 4rem; }
 
-    /* fitting the image to the bounding box */
-    background-size: cover;
-    background-position: top;
+.header__logo {
+  height: 35px; }
 
-    /* a polygon drawing: x y, x y, x y, x y, x y  */
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-
-    /* note that the height of our 3ird point is dinamic*/
-}
-
-.logo-box {
-    position: absolute;
-
-    /* fix the position of this box to the nearest parent with a relative position -header set to relative-  */
-    top: 4rem;
-    left: 4rem;
-}
-
-.logo {
-    height: 35px;
-
-    /* the width is scaled acordingly */
-}
-
-.text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-
-    /* box center alignment: to the relative position, move in x -50% of the width and in y -50% the height of this element. This value is computed in the top left corner of itself*/
-    transform: translate(-50%, -50%);
-
-    /*  button alignment with "display: inline-block"*/
-    text-align: center;
-}
+.header__text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; }
 
 .heading-primary {
-    color: #fff;
-    text-transform: uppercase;
-    margin-bottom: 6rem;
-}
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 6rem; }
 
-.heading-primary-main {
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
+.heading-primary--main {
+  display: block;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out; }
 
-    /* animation spec  */
-    animation-name: moveInLeft;
-    animation-duration: 1s;
+.heading-primary--sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.75rem;
+  animation: moveInRight 1s ease-out;
+  backface-visibility: hidden; }
 
-    /* ease-out: starts with a faster timing, and then it ends with an slower timing*/
-    animation-timing-function: ease-out;
-
-    /*
-    animation-iteration-count: 3;
-    animation-delay: 3s;
-    */
-}
-
-.heading-primary-sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
-
-    /* animation shorthand, we can use this animation on any element and state "logo:hover" */
-    animation: moveInRight 1s ease-out;
-
-    /* remove shaking on our heading animation */
-    backface-visibility: hidden;
-}
-
-/* a browser is optimized to animate the opacity and the transform property */
 @keyframes moveInLeft {
-    /* the porcetange is the time duraction */
-    0% {
-        opacity: 0;
-        transform: translateX(-10rem);
-    }
-
-    /* bounce to the right */
-    80% {
-        transform: translateX(1rem);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  80% {
+    transform: translateX(1rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
 
 @keyframes moveInRight {
-    /* the porcetange is the time duration */
-    0% {
-        opacity: 0;
-        transform: translateX(10rem);
-    }
-
-    /* bounce to the right */
-    80% {
-        transform: translateX(-1rem);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
 
 @keyframes moveInButton {
-    /* the porcetange is the time duraction */
-    0% {
-        opacity: 0;
-        transform: translateY(3rem);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
 
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* pseudo class:  element selection on special conditions.
-   we are going to add animations with pseudo classes. animations
-   are relative to the initial state, take a look at .btn:hover and
-   .btn:active classes
-*/
 .btn:link,
 .btn:visited {
-    text-transform: uppercase;
-
-    /* remove text underline */
-    text-decoration: none;
-
-    /*note: y x (a padding shorthand) */
-    padding: 1.5rem 1.4rem;
-
-    /* unlike block, inline-block wraps its content, and it does not occupy the whole width.
-       This block is threated as it was a text box */
-    display: inline-block;
-    border-radius: 10rem;
-
-    /* block animations: effects are going to be applied to whatever property is changed on this element (or changes to  the initial state)*/
-    transition: all .2s;
-    position: relative;
-    font-size: 1.6rem;
-}
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 1.4rem;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all .2s;
+  position: relative;
+  font-size: 1.6rem; }
 
 .btn:hover {
-    transform: translateY(-3px);
-
-    /* x y depth color (with black transparency) */
-    box-shadow: 0 1rem 2rem rgba(0,0,0,0.2);
-}
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
 
 .btn:active {
-    transform: translateY(1px);
+  transform: translateY(1px);
+  box-shadow: 0 0.5rem 10rem rgba(0, 0, 0, 0.2); }
 
-    /* less blur and less shadow  */
-    box-shadow: 0 .5rem 10rem rgba(0,0,0,0.2);
-}
+.btn--white {
+  background-color: #fff;
+  color: #777; }
 
-.btn-white {
-    background-color: #fff;
-    color: #777;
-}
-
-/* "after" adds a virtual element after the selected element */
 .btn::after {
-    /* content property must be present to show the element  */
-    content: "";
-    display: inline-block;
+  content: "";
+  display: inline-block;
+  /* parent properties inheritance */
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  /* offset reset*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* put this element behind the parent element */
+  z-index: -1;
+  transition: all .4s; }
 
-    /* box sizing: this element is threated as a child. With parent inheritance
-    we are assigning the same properties of the original button.*/
-    height: 100%;
-    width: 100%;
-    border-radius: 10rem;
-
-    /* there is an offset on this element, and so we used absolute positioning
-       with our relative parent as the btn class*/
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    /* put this element behind the parent element */
-    z-index: -1;
-
-    /* every property that changes our after element, will be animated */
-    transition: all .4s;
-}
-
-/* target the same virtual element that .btn::after do, and use the same color of the original button*/
-.btn-white::after {
-    background-color: #fff;
-}
+.btn--white::after {
+  background-color: #fff; }
 
 /* scale our after element when the buttons enters in hover state */
 .btn:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
-}
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0; }
 
-.btn-animated {
-    /* note:  the last value is a delay */
-    animation: moveInButton .5s ease-out .75s;
-
-    /* to hide our button when the animation has not even started, we set the style
-       of the last state of the animation to this button */
-    animation-fill-mode: backwards;
-}
+.btn--animated {
+  animation: moveInButton .5s ease-out .75s;
+  animation-fill-mode: backwards; }
