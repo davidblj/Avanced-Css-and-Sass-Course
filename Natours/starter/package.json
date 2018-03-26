@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "live": "live-server",
+    "watch:live": "live-server",
     "compile:sass": "node-sass sass/main.scss css/style.css -w"
   },
   "license": "MIT",

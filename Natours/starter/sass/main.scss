@@ -4,6 +4,7 @@ $color-primary-light: #7ed56f;
 $color-primary-dark: #28b485;
 $color-grey-dark: #777;
 $color-white: #fff;
+$color-black: #000;
 
 *,
 *::after
@@ -23,10 +24,11 @@ body {
     line-height: 1.7;
     color: $color-grey-dark;
     padding: 3rem;
-    box-sizing: border-box;
+    box-sizing: border-boxd
 }
 
 .header {
+
     height: 95vh;
     position: relative;
     background-image: linear-gradient(
@@ -37,49 +39,56 @@ body {
     background-size: cover;
     background-position: top;
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+    &__logo-box {
+
+      position: absolute;
+      top: 4rem;
+      left: 4rem;
+    }
+
+    &__logo {
+
+      height: 35px;
+    }
+
+    &__text-box {
+
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
 }
 
-.header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem;
-}
-
-.header__logo {
-    height: 35px;
-}
-
-.header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
 
 .heading-primary {
+
     color: $color-white;
     text-transform: uppercase;
     margin-bottom: 6rem;
-}
 
-.heading-primary--main {
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
-}
+    &--main {
 
-.heading-primary--sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
-    animation: moveInRight 1s ease-out;
-    backface-visibility: hidden;
+        display: block;
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+        animation-name: moveInLeft;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+    }
+
+    &--sub {
+
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.75rem;
+        animation: moveInRight 1s ease-out;
+        backface-visibility: hidden;
+    }
 }
 
 
@@ -130,65 +139,70 @@ body {
     }
 }
 
+.btn {
 
-.btn:link,
-.btn:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1.5rem 1.4rem;
-    display: inline-block;
-    border-radius: 10rem;
-    transition: all .2s;
-    position: relative;
-    font-size: 1.6rem;
-}
+  // link: an element that has not yet been visited
+  // visited: represents a link that the user has already visited
+  &:link,
+  &:visited {
 
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 1rem 2rem rgba(0,0,0,0.2);
-}
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1.5rem 1.4rem;
+      display: inline-block;
+      border-radius: 10rem;
+      transition: all .2s;
+      position: relative;
+      font-size: 1.6rem;
+  }
 
-.btn:active {
-    transform: translateY(1px);
-    box-shadow: 0 .5rem 10rem rgba(0,0,0,0.2);
-}
+  &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 1rem 2rem rgba($color-black,0.2);
 
-.btn--white {
-    background-color: $color-white;
-    color: $color-grey-dark;
-}
+      /* scale the "after" element when the original button is hovered */
+      &::after {
+          transform: scaleX(1.4) scaleY(1.6);
+          opacity: 0;
+      }
+  }
 
-.btn::after {
+  // on click (mouse down)
+  &:active {
+      transform: translateY(1px);
+      box-shadow: 0 .5rem 10rem rgba($color-black,0.2);
+  }
 
-    content: "";
-    display: inline-block;
-    /* parent properties inheritance */
-    height: 100%;
-    width: 100%;
-    border-radius: 10rem;
+  &--white {
+      background-color: $color-white;
+      color: $color-grey-dark;
 
-    /* offset reset*/
-    position: absolute;
-    top: 0;
-    left: 0;
+      &::after {
+          background-color: $color-white;
+      }
+  }
 
-    /* put this element behind the parent element */
-    z-index: -1;
-    transition: all .4s;
-}
+  &::after {
 
+      content: "";
+      display: inline-block;
+      /* parent properties inheritance */
+      height: 100%;
+      width: 100%;
+      border-radius: 10rem;
 
-.btn--white::after {
-    background-color: $color-white;
-}
+      /* offset reset*/
+      position: absolute;
+      top: 0;
+      left: 0;
 
-/* scale our after element when the buttons enters in hover state */
-.btn:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
-}
+      /* put this element behind the parent element */
+      z-index: -1;
+      transition: all .4s;
+  }
 
-.btn--animated {
-    animation: moveInButton .5s ease-out .75s;
-    animation-fill-mode: backwards;
+  &--animated {
+      animation: moveInButton .5s ease-out .75s;
+      animation-fill-mode: backwards;
+  }
 }
