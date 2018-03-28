@@ -1,0 +1,57 @@
+// 22 min
+
+.row {
+  // fill available space if smaller
+  max-width: $grid-width;
+
+  // block centering trick. auto will set the left and rigth margin
+  // to equal values
+  margin: 0 auto;
+
+  // everything but the last child
+  &:not(:last-child) {
+
+    margin-bottom: $vertical-gutter;
+  }
+
+  // this element height collapses since every element is floated. This mixin
+  // restores that height
+  @include clearfix;
+
+  // an attribute selector to target all elements whose class starts with "col-"
+  [class^="col-"] {
+
+    float: left;
+
+    // the last column does not have a gutter
+    &:nost(:last-child) {
+
+      margin-right: $horizontal-gutter;
+    }
+  }
+
+  .col-1-of-2 {
+    width: calc((100% - #{$horizontal-gutter}) / 2);
+  }
+
+  .col-1-of-3 {
+    width: calc((100% - 2 * #{$horizontal-gutter}) / 3);
+  }
+
+  .col-2-of-3 {
+    // 2 times the widht of a normal colum + the gutter between them
+    width: calc( 2 * ((100% - 2 * #{$horizontal-gutter}) / 3) + #{$horizontal-gutter});
+  }
+
+  .col-1-of-4 {
+    width: calc((100% - 3 * #{$horizontal-gutter}) / 4);
+  }
+
+  .col-2-of-4 {
+    width: calc( 2 * ((100% - 3 * #{$horizontal-gutter}) / 4) + #{$horizontal-gutter});
+  }
+
+  .col-3-of-4 {
+    width: calc( 3 * ((100% - 3 * #{$horizontal-gutter}) / 4) + 2 * #{$horizontal-gutter});
+  }
+}
