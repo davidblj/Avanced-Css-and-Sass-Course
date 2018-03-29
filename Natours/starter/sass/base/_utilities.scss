@@ -1,0 +1,20 @@
+// place a mixing "a like" class definition. The key difference is in the
+// implementation. I need to define a block that wraps blocks in this case
+
+.u-center-text {
+  text-align: center;
+}
+
+// this utility lets us reuse components. A class component should not
+// define a margin, for example.
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem;
+}
+
+.u-margin-bottom-medium {
+  margin-bottom: 4rem;
+}
+
+.u-margin-bottom-big {
+  margin-bottom: 8rem;
+}
