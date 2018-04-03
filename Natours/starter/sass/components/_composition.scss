@@ -1,0 +1,55 @@
+.composition {
+
+  position: relative;
+
+  &__photo {
+
+    // the width of images should be applied with porcentages to scale to the viewport
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+    border-radius: 2px;
+    position: absolute;
+    margin-left: 4rem;
+    z-index: 10;
+    transition: all .2s;
+
+    // default offset to the image outline
+    outline-offset: 2rem;
+
+    &--p1 {
+
+      left: 0;
+      top: -2rem;
+    }
+
+    &--p2 {
+
+      right: 0;
+      top: 2rem;
+    }
+
+    &--p3 {
+
+      left: 20%;
+      top: 10rem;
+    }
+
+    &:hover {
+
+      // the image outline
+      outline: 1.5rem solid $color-primary;
+      transform: scale(1.05) translateY(-.5rem);
+      box-shadow: 0 2.5rem 4rem rgba($color-black, .4);
+
+      // to make them stand out we will assign a higher z-index to the current
+      // element
+      z-index: 20;
+    }
+  }
+
+  // when this element is hovered upon, decrease the images that are not hovered
+  // upon
+  &:hover &__photo:not(:hover){
+    transform: scale(.95);
+  }
+}
