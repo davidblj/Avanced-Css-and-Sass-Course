@@ -24,7 +24,7 @@
     float: left;
 
     // the last column does not have a gutter
-    &:nost(:last-child) {
+    &:not(:last-child) {
 
       margin-right: $horizontal-gutter;
     }

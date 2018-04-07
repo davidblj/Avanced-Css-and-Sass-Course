@@ -42,10 +42,14 @@ body {
   text-transform: uppercase;
   font-weight: 700;
   display: inline-block;
+
+  // gradient background color
   background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
 
-  // the background gets clipped to where the text is
+  // background clipping adaptation in to the text
   -webkit-background-clip: text;
+
+  // transparent color to show the background of the text
   color: transparent;
   letter-spacing: 2px;
   transition: all .2s;

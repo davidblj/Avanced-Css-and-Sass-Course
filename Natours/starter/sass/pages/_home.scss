@@ -1,9 +1,32 @@
 
 .section-about {
-  
+
   background-color: $color-grey-light-1;
   padding: 25rem 0;
 
   // filling the whole that the pollygon created in the header component
   margin-top: -20vh;
+}
+
+.section-features {
+
+  padding: 20rem 0;
+  background-image: linear-gradient(
+  to right bottom,
+  rgba($color-primary-light, 0.8),
+  rgba($color-primary-dark, 0.8)),
+  url(../img/nat-4.jpg);
+  background-size: cover;
+
+  // transform alternative to the content clipping technique
+  transform: skewY(-7deg);
+
+  // you dont need to define a relative position, use a negative margin-top instead
+  margin-top: -10rem;
+
+  // target every direct children. That is, the 'row' div.
+  & > * {
+
+    transform: skewY(7deg);
+  }
 }
