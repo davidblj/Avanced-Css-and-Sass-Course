@@ -1,7 +1,17 @@
 // colors
+
+// green
 $color-primary: #55c57a;
 $color-primary-light: #7ed56f;
 $color-primary-dark: #28b485;
+
+// orange
+$color-secondary-light: #ffb900;
+$color-secondary-dark: #ff7730;
+
+// blue
+$color-tertiary-light: #2998ff;
+$color-tertiary-dark: #5643fa;
 
 $color-grey-light-1: #f7f7f7;
 
@@ -13,6 +23,6 @@ $color-black: #000;
 $default-font-size: 1.6rem;
 
 // grid
-$grid-width: 114rem;
+$grid-width: 116rem;
 $vertical-gutter: 8rem;
 $horizontal-gutter: 6rem;

@@ -1,0 +1,54 @@
+
+.card {
+
+  // this rule adds the card rotating effect
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+
+  // since we are not using floats, the height collapses.
+  // we must set a height to the parent and its children
+  height: 50rem;
+
+  &__side {
+
+    height: 50rem;
+    transition: all .5s ease;
+
+    // position one side on top of each other
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    // hide the back "part" of this element
+    backface-visibility: hidden;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+    &--front {
+      background-color: $color-white;
+    }
+
+    // the back side, is flipped naturally
+    &--back {
+      transform: rotateY(180deg);
+
+      &-1 {
+        background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark)
+      }
+    }
+
+  }
+
+  // when the card is hovered upon, apply an specific
+  // style to one "side". Do rotate each side respectively
+
+  &:hover &__side--front {
+    transform: rotateY(180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0deg);
+  }
+}
