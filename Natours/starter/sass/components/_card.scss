@@ -1,4 +1,3 @@
-  // 23:48 - 40
 
 .card {
 
@@ -156,11 +155,14 @@
     }
   }
 
+  // why dont we use the utility text center on this rule sets ?
   &__cta {
+    text-align: center;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 90%;
   }
 
   &__price-box {
