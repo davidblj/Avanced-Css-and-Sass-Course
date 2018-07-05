@@ -23,19 +23,54 @@
     -webkit-shape-outside: circle(50% at 50% 50%);    // safari
     shape-outside: circle(50% at 50% 50%);
 
-    // the circle drawing
+    // the circle drawing of this element
     -webkit-shape-outside: circle(50% at 50% 50%);
     clip-path: circle(50% at 50% 50%);
     transform: translateX(-3rem) skewX(12deg);
+    position: relative;
   }
 
 
   &__img {
     // 100% of its parent
     height: 100%;
+    backface-visibility: hidden;   // chrome bug fix (no explanation given)
+
+    transition: all .5s;
+    transform: translateX(-4rem) scale(1.4);  // img manual center alignment
   }
 
   &__text {
     transform: skewX(12deg);
+  }
+
+  &__caption {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;  // ?! why not an utility ?
+
+    transition: all .5s;
+    opacity: 0;
+
+    // fix the small movement glitch (on chrome)
+    backface-visibility: hidden;
+  }
+
+
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__img {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%);  // brightness: > 100 lighter, < 100 darker
+    // take a look at all the properties in the web dev console
   }
 }
