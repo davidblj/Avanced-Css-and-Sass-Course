@@ -1,0 +1,19 @@
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: .15;
+  overflow: hidden;  // google video overflow  
+
+  &__content {
+    height: 100%;
+    width: 100%;
+
+    // this rule is similiar to background-aize: cover. This element will
+    // fill the entire parent while still maintaining the aspect ratio
+    object-fit: cover;
+  }
+}
