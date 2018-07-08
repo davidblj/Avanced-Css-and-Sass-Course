@@ -1,0 +1,64 @@
+
+.form {
+
+  &__group:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  &__input {
+    font-size: 1.5rem;
+
+    // the input elements do not inherit the font family, and so we set it
+    // manually
+    font-family: inherit;
+    color: inherit;
+
+    padding: 1.5rem 2rem;
+    border-radius: 2px;
+    background-color: rgba($color-white, .5);
+    border: none;
+
+    // make this element static when focused
+    border-bottom: 3px solid transparent;
+    width: 60%;
+    display: block;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, .1);
+      border-bottom: 3px solid $color-primary;
+    }
+
+    // invalid focus input element
+    &:focus:invalid {
+      border-bottom: 3px solid $color-secondary-dark;
+    }
+
+    // not supported in all browser. We are targetting a browser element, which is the
+    // placeholder. Firefox do not need this property
+    &::-webkit-input-placeholder {
+      color: $color-grey-dark-2;
+    }
+  }
+
+  &__label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: .7rem;
+    display: block;
+    transition: all .3s;
+  }
+
+  // select the sibling label when the input placeholder is shown
+  // the sibling must be inmediatly after this elmement (+)
+  &__input:placeholder-shown + &__label {
+
+    opacity: 0;
+    transform: translateY(-4rem);
+
+    // the visibility property removes an element from the dom itself. We use
+    // the opacity for animation purposes
+    visibility: hidden;
+  }
+}
