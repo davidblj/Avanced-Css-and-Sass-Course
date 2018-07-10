@@ -1,5 +1,6 @@
   .btn {
 
+  &, // target every element (since bellow rules wont apply to button elements)
   // link: an element that has not yet been visited
   // visited: represents a link that the user has already visited
   &:link,
@@ -7,12 +8,16 @@
 
       text-transform: uppercase;
       text-decoration: none;
-      padding: 1.5rem 1.4rem;
+      padding: 1.5rem 4rem;
       display: inline-block;
       border-radius: 10rem;
       transition: all .2s;
       position: relative;
       font-size: $default-font-size;
+
+      // changes for the button element
+      border: none;
+      cursor: pointer;
   }
 
   &:hover {
@@ -27,7 +32,9 @@
   }
 
   // on click (mouse down)
-  &:active {
+  &:active,
+  &:focus {
+      outline: none;
       transform: translateY(1px);
       box-shadow: 0 .5rem 10rem rgba($color-black,0.2);
   }

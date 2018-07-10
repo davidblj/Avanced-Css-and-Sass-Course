@@ -22,6 +22,7 @@
     border-bottom: 3px solid transparent;
     width: 60%;
     display: block;
+    transition: all .3s;
 
     &:focus {
       outline: none;
@@ -51,7 +52,8 @@
   }
 
   // select the sibling label when the input placeholder is shown
-  // the sibling must be inmediatly after this elmement (+)
+  // the sibling must be inmediatly after this elmement (+). We can change this
+  // behaviour using a (~) which is general to any sibling
   &__input:placeholder-shown + &__label {
 
     opacity: 0;
@@ -60,5 +62,64 @@
     // the visibility property removes an element from the dom itself. We use
     // the opacity for animation purposes
     visibility: hidden;
+  }
+
+  &__radio-group {
+    width: 40%;
+    display: inline-block;
+  }
+
+  &__radio-label {
+
+    font-size: $default-font-size;
+    cursor: pointer;
+
+    // radio button spacing. This element is actually the parent of the radio
+    // button
+    position: relative;
+    padding-left: 4.5rem;
+  }
+
+  &__radio-input {
+
+    // Why does the radio button
+    // hit box is as large as the radio button span element after we set the
+    // display to none
+    display: none
+  }
+
+  &__radio-button {
+
+    height: 2.3rem;
+    width: 2.3rem;
+    border: 5px solid $color-primary;
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: -.6rem;
+
+    &::after {
+
+      content: "";
+      display: block;
+      height: 1.3rem;
+      width: 1.3rem;
+      border-radius: 50%;
+
+      position: absolute;  // why is this targetting the parent
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: $color-primary;
+      opacity: 0;
+      transition: opacity .2s;
+    }
+  }
+
+  // do select the radio button 'after' element (which is the child of radio-label)
+  // when the radio input is checked
+  &__radio-input:checked ~ &__radio-label &__radio-button::after {
+    opacity: 1;
   }
 }
