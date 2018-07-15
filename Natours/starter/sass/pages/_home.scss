@@ -1,4 +1,3 @@
-// 45 (8:00)
 
 .section-about {
 
@@ -27,7 +26,6 @@
 
   // target every direct children. That is, the 'row' div.
   & > * {
-
     transform: skewY(7deg);
   }
 }
@@ -46,6 +44,7 @@
 }
 
 .section-book {
+
   padding: 15rem 0;
   background-image: linear-gradient(
    to right bottom,
@@ -61,11 +60,11 @@
                                     rgba($color-white, .9) 0%,
                                     rgba($color-white, .9) 50%,
                                     transparent 50%),
-                    url(../img/nat-10.jpg);
-  background-size: 100%;  // 100% of the width of the image ~ cover property
+                                    url(../img/nat-10.jpg);
+  background-size: 100%;  // 100% of the width of the image (background-size:
+                          // cover property equivalent)
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
-  // height: 50rem;
 
   &__form {
     width: 50%;

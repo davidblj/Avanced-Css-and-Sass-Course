@@ -6,14 +6,15 @@
   width: 100%;
   z-index: -1;
   opacity: .15;
-  overflow: hidden;  // google video overflow  
+  overflow: hidden;  // video overflow (google browser)
 
   &__content {
     height: 100%;
     width: 100%;
 
+    // 'height: 100' is not enough to make the video as large as its containing box
     // this rule is similiar to background-aize: cover. This element will
-    // fill the entire parent while still maintaining the aspect ratio
+    // fill the entire parent while still maintaining the aspect ratio of the video
     object-fit: cover;
   }
 }

@@ -82,9 +82,9 @@
 
   &__radio-input {
 
-    // Why does the radio button
-    // hit box is as large as the radio button span element after we set the
-    // display to none
+    // Why does the radio button hit box is as large as the radio button span element after we set the
+    // display to none ? becuase html behaves like that when the input display is hidden. The input
+    // must be associated with a label ('id' and 'for')
     display: none
   }
 
@@ -107,7 +107,7 @@
       width: 1.3rem;
       border-radius: 50%;
 
-      position: absolute;  // why is this targetting the parent
+      position: absolute;  // why is this targetting its inmediate parent of absolute position
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
