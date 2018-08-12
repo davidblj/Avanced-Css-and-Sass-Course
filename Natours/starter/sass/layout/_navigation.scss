@@ -15,6 +15,8 @@
     right: 6rem;
     z-index: 2000;
     box-shadow: 0 1rem 3rem rgba($color-black, .1);
+    text-align: center; // icon centering
+    cursor: pointer;
   }
 
   // background that expands within the button itself
@@ -49,7 +51,8 @@
 
     // easings: https://easings.net/, we chose easeinout
     // builder: http://cubic-bezier.com
-    transition: all 1s cubic-bezier(.67,-0.5,.06,1.4);
+    // transition: all 1s cubic-bezier(.67,-0.5,.06,1.4);
+    transition: all 1s;
   }
 
   &__list {
@@ -112,6 +115,8 @@
     }
   }
 
+  // functionality
+
   &__checkbox:checked ~ &__background {
     transform: scale(80);
   }
@@ -119,5 +124,60 @@
   &__checkbox:checked ~ &__nav {
     opacity: 1;
     width: 100%;
+  }
+
+  // icon
+  &__icon {
+
+    // the icon is one span element, 1 before element and 1 after element
+    // each one represents a line.
+
+    position: relative;
+    margin-top: 3.5rem;
+
+    &,
+    &::before,
+    &::after {
+      width: 3rem;
+      height: 2px;
+      background-color: $color-grey-dark-3;
+      display: inline-block;
+      transition: all .2s;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+    }
+
+    &::before { top: -.8rem; }
+    &::after { top: .8rem; }
+  }
+
+  &__button:hover &__icon::before {
+    top: -1rem;
+  }
+
+  &__button:hover &__icon::after {
+    top: 1rem;
+  }
+
+  // select the brother child of the checkbox element
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+  }
+
+  &__checkbox:checked + &__button &__icon::before {
+    // move this element to the middle (a reset)
+    top: 0;
+    transform: rotate(135deg);
+  }
+
+  &__checkbox:checked + &__button &__icon::after {
+    // move this element to the middle (a reset)
+    top: 0;
+    transform: rotate(-135deg);
   }
 }
