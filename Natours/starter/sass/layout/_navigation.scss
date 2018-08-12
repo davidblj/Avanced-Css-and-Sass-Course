@@ -14,6 +14,7 @@
     top: 6rem;
     right: 6rem;
     z-index: 2000;
+    box-shadow: 0 1rem 3rem rgba($color-black, .1);
   }
 
   // background that expands within the button itself
@@ -22,15 +23,14 @@
     width: 6rem;
     border-radius: 50%;
     position: fixed;
-    top: 6.5rem;    // +1/2 of 1 rem offset given by the button width and height.
+    top: 6.5rem;    // +1/2 of 1 rem offset given by the button width and height difference.
     right: 6.5rem;
 
     // the radio gradient starts in the middle of this element, spreading
     // in to any direction
     background-image: radial-gradient($color-primary-light, $color-primary-dark);
     z-index: 1000;
-
-    transform: scale(70);
+    transition: transform .8s;
   }
 
   &__nav {
@@ -38,11 +38,18 @@
     // 'list' parent element lavarage, in between the background and the button.
     // take a look at the z-index
     height: 100vh;
-    width: 100vw;
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     z-index: 1500;
+
+    // hide the navigation (width: 0) and make it invisible (opacity: 0)
+    opacity: 0;
+    width: 0;
+
+    // easings: https://easings.net/, we chose easeinout
+    // builder: http://cubic-bezier.com
+    transition: all 1s cubic-bezier(.67,-0.5,.06,1.4);
   }
 
   &__list {
@@ -53,6 +60,7 @@
     transform: translate(-50%, -50%);
     list-style: none;
     text-align: center;
+    width: 100%;
   }
 
   &__item {
@@ -96,10 +104,20 @@
     &:hover,
     &:active {
 
-      // to set back the background size, we use this property. not background-size.
+      // to set back the background size, we use this property.
+      // not background-size: 100% like one would think.
       background-position: 100%;
       color: $color-primary;
       transform: translateX(1rem);
     }
+  }
+
+  &__checkbox:checked ~ &__background {
+    transform: scale(80);
+  }
+
+  &__checkbox:checked ~ &__nav {
+    opacity: 1;
+    width: 100%;
   }
 }
