@@ -55,7 +55,7 @@
 
                 <!--  is a good practice to create btn-color class for modularity -->
                 <!--  note also that the animations are handled in a different class -->
-                <a href="#" class="btn--white btn btn--animated">Discover our tools</a>
+                <a href="section-tours" class="btn--white btn btn--animated">Discover our tools</a>
             </div>
 
         </header>
@@ -138,7 +138,7 @@
 
           </section>
 
-          <section class="section-tours">
+          <section class="section-tours" id="section-tours">
 
             <div class="u-center-text u-margin-bottom-big">
               <h2 class="heading-secondary">
@@ -179,7 +179,7 @@
                       <p class="card__price-only">Only</p>
                       <p class="card__price-value">$279</p>
                     </div>
-                    <a href="" class="btn btn--white">Book now!</a>
+                    <a href="#popup" class="btn btn--white">Book now!</a>
                   </div>
                 </div>
 
@@ -216,7 +216,7 @@
                       <p class="card__price-only">Only</p>
                       <p class="card__price-value">$497</p>
                     </div>
-                    <a href="" class="btn btn--white">Book now!</a>
+                    <a href="#popup" class="btn btn--white">Book now!</a>
                   </div>
                 </div>
               </div>
@@ -253,7 +253,7 @@
                       <p class="card__price-only">Only</p>
                       <p class="card__price-value">$829</p>
                     </div>
-                    <a href="" class="btn btn--white">Book now!</a>
+                    <a href="#popup" class="btn btn--white">Book now!</a>
                   </div>
                 </div>
               </div>
@@ -407,7 +407,7 @@
 
           </footer>
 
-          <div class="popup">
+          <div class="popup" id="popup">
             <div class="popup__content">
 
               <div class="popup__left">
@@ -416,6 +416,10 @@
               </div>
 
               <div class="popup__rigth">
+                <!-- when clicked on this tag, the id target rule will no longer
+                     apply to this element, and hence it will close  -->
+                <a href="#section-tours" class="popup__close">&times;</a>
+
                 <h2 class="heading-secondary u-margin-bottom-small">Start booking now</h2>
                 <h3 class="heading-tertiary u-margin-bottom-small">Important &dash; Please read these terms before booking</h3>
                 <p class="popup__text">
