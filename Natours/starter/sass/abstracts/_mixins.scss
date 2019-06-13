@@ -11,4 +11,54 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-} 
+}
+
+// MEDIA QUERY MANAGER
+
+/*
+0 - 600px:    Phone
+600 - 900px:  Tablet protrait
+900 - 1200px: Tablet landscape
+1200:         Big desktop
+1200 - 18000  Normal styles apply
+*/
+
+/*
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+*/
+
+// em and rems are not affected by the root font size setting
+// use em and not rems as rems dont work in all browsers
+// em is what is usually used for media queries
+// if 1 em is 60px, 600/16 is 37.5em, 900/16 is ...
+
+/* The recommended order to apply this mixins is as follows
+
+Base
+typhography
+general layout
+components
+
+*/
+@mixin respond($breakpoint) {
+
+  @if $breakpoint == tab-land {
+    @media (max-width: 56.25em) { @content }; // less than 900px
+  }
+
+  @if $breakpoint == tab-port {
+    @media (max-width: 50em)  { @content }; // less than 600px
+  }
+
+  @if $breakpoint == phone {
+    @media (max-width: 37em) { @content }; // less than 400px
+  }
+
+  @if $breakpoint == big-desktop {
+    @media (min-width: 70em) { @content }; // 1800px
+  }
+}

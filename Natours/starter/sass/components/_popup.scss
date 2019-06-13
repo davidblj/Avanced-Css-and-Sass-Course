@@ -1,5 +1,6 @@
 
 .popup {
+
   height: 100vh;
   width: 100%;
   position: fixed;
@@ -56,7 +57,7 @@
 
     // column text styles
     column-count: 2;
-    column-gap: 4rem; // 1em = 14px
+    column-gap: 4rem; // 1rem = 14px
     column-rule: 1px solid $color-grey-light-2;
 
     -moz-column-count: 2;
@@ -79,7 +80,7 @@
     visibility: visible;
   }
 
-  // do think of this rule of styles as of the moments when you
+  // do think of this set of styles as of the moments when you
   // animate hovered (&:hover) elements, take a look a closer look
   // at the line 28
   &:target &__content {

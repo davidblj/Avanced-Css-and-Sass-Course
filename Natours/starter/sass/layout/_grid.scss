@@ -1,4 +1,3 @@
-// 22 min
 
 .row {
   // fill available space if smaller
@@ -12,11 +11,20 @@
   &:not(:last-child) {
 
     margin-bottom: $vertical-gutter;
+
+    @include respond(tab-port) {
+      margin-bottom: $small-vertical-gutter;
+      padding: 0 3rem;
+    }
   }
 
   // this element height collapses since every element is floated. This mixin
   // restores that height
   @include clearfix;
+
+  @include respond(tab-port) {
+    max-width: 50rem;
+  }
 
   // an attribute selector to target all elements whose class starts with "col-"
   [class^="col-"] {
@@ -27,6 +35,16 @@
     &:not(:last-child) {
 
       margin-right: $horizontal-gutter;
+
+      @include respond(tab-port) {
+        margin-right: 0;
+        margin-bottom: $small-vertical-gutter;
+      }
+    }
+
+    // make columns to span the whole width of its parent
+    @include respond(tab-port) {
+      width: 100% !important;
     }
   }
 
@@ -39,7 +57,7 @@
   }
 
   .col-2-of-3 {
-    // 2 times the widht of a normal colum + the gutter between them
+    // 2 times the width of a normal colum + the gutter between this 2 block column and the last column
     width: calc( 2 * ((100% - 2 * #{$horizontal-gutter}) / 3) + #{$horizontal-gutter});
   }
 

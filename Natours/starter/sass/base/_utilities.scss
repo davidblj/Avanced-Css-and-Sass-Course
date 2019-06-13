@@ -1,8 +1,8 @@
 // to avoid specifity, we add the !important keyword to every utility. This is
 // a common practice
 
-// place a mixing "a like" class definition. The key difference is in the
-// implementation. I need to define a block that wraps blocks in this case
+// place a mixing "like" class definition. The key difference is in the
+// implementation.
 
 .u-center-text { text-align: center !important;}
 
@@ -10,8 +10,23 @@
 // define a margin, for example.
 
 .u-margin-bottom-small { margin-bottom: 1.5rem !important; }
-.u-margin-bottom-medium { margin-bottom: 4rem !important; }
-.u-margin-bottom-big { margin-bottom: 8rem !important; }
+.u-margin-bottom-medium {
+
+  margin-bottom: 4rem !important;
+
+  @include respond(tab-port) {
+    padding: 3rem !important;
+  }
+}
+
+.u-margin-bottom-big {
+
+  margin-bottom: 8rem !important;
+
+  @include respond(tab-port) {
+    margin-bottom: 5rem !important;
+  }
+}
 
 .u-margin-top-big { margin-top: 8rem !important; }
 .u-margin-top-huge { margin-top: 10rem !important; }
