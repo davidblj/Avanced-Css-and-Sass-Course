@@ -37,6 +37,7 @@
       margin-right: $horizontal-gutter;
 
       @include respond(tab-port) {
+
         margin-right: 0;
         margin-bottom: $small-vertical-gutter;
       }

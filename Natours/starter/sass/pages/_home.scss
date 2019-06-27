@@ -73,21 +73,50 @@
 }
 
 .book {
+
   // the diagonal line is not drawn through a clip-path property, but
   // through a linear-gradient. we cut off the transition effect by
-  // assigning colors at specific and contiguos tresh holds
+  // assigning colors at specific and contiguos tresh-holds
   background-image: linear-gradient(105deg,
                                     rgba($color-white, .9) 0%,
                                     rgba($color-white, .9) 50%,
                                     transparent 50%),
                                     url(../img/nat-10.jpg);
   background-size: 100%;  // 100% of the width of the image (background-size:
-                          // cover property equivalent)
+                          // cover property "kind of" equivalent)
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
 
+  @include respond(tab-land) {
+
+    background-image: linear-gradient(105deg,
+                                      rgba($color-white, .9) 0%,
+                                      rgba($color-white, .9) 65%,
+                                      transparent 65%),
+                                      url(../img/nat-10.jpg);
+
+    background-size: cover;  // fit the container in its 'y' direction
+  }
+
+  @include respond(tab-port) {
+
+    background-image: linear-gradient(to right,
+                                      rgba($color-white, .9) 0%,
+                                      rgba($color-white, .9) 100%) ,
+                                      url(../img/nat-10.jpg);
+  }
+
   &__form {
+
     width: 50%;
     padding: 6rem 6rem 4rem 6rem;
+
+    @include respond(tab-land) {
+      width: 65%;
+    }
+
+    @include respond(tab-port) {
+      width: 100%;
+    }
   }
 }

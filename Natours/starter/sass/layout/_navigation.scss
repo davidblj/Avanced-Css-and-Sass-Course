@@ -6,6 +6,7 @@
   }
 
   &__button {
+
     background-color: $color-white;
     height: 7rem;
     width: 7rem;
@@ -31,6 +32,7 @@
 
   // background that expands within the button itself
   &__background {
+    
     height: 6rem;
     width: 6rem;
     border-radius: 50%;
@@ -45,8 +47,8 @@
     transition: transform .8s;
 
     @include respond(tab-port) {
-      top: 4.5rem;
-      right: 4.5rem;
+      top: 5rem;
+      right: 5rem;
     }
 
     @include respond(phone) {

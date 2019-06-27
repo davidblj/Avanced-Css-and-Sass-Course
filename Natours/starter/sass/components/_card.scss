@@ -67,7 +67,7 @@
     height: 23rem;
 
     // bend 2 backgrounds (the gradient, and the image). We can achieve something
-    // similar wth just a linear gradient. this propertie do have some special effects
+    // similar wth just a linear gradient. this property do have some special effects
     // that a linear gradient does not
     background-blend-mode: screen;
     -webkit-clip-path: polygon(0 0, 100 0, 100% 85%, 0 100%);
@@ -112,7 +112,7 @@
     padding: 1rem 1.5rem;
 
     // since this block is treated as a text block. the text wrapping wont
-    // knowledge the padding, this propertie makes it do so.
+    // knowledge the padding, this property makes it do so.
     -webkit-box-decoration-break: clone;   // google chrome compatibility
     box-decoration-break: clone;
 
@@ -136,19 +136,23 @@
   }
 
   &__details {
+
     padding: 3rem;
 
     ul {
+
       list-style: none;
       width: 80%;
       margin: 0 auto;
 
       li {
+
         text-align: center;
         font-size: 1.5rem;
         padding: 1rem;
 
         &:not(:last-child) {
+
           border-bottom: 1px solid $color-grey-light-2;
         }
       }
@@ -179,5 +183,63 @@
   &__price-value {
     font-size: 6rem;
     font-weight: 100;
+  }
+
+  @include respond(tab-port) {
+
+    height: auto;
+    border-radius: 3px;
+    background-color: $color-white;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+    &__side {
+
+      height: auto;
+      position: relative;
+      transition: all .5s ease;
+      box-shadow: none;
+
+      &--back {
+        transform: rotateY(0);
+        clip-path: polygon(0 15%, 100%  0, 100% 100%, 0% 100%);
+      }
+    }
+
+    &:hover &__side--front {
+      transform: rotateY(0);
+    }
+
+    &:hover &__side--back {
+      transform: rotateY(0);
+    }
+
+    &__cta {
+
+      text-align: center;
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0);
+      padding: 7rem 4rem 4rem;
+    }
+
+    &__price-box {
+
+      margin-bottom: 3rem;
+    }
+
+    &__price-value {
+
+      font-size: 6rem;
+      font-weight: 100;
+    }
+
+    &__details {
+
+      ul {
+
+        padding: 0;        
+      }
+    }
   }
 }

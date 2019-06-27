@@ -24,6 +24,10 @@
     display: block;
     transition: all .3s;
 
+    @include respond(tab-port) {
+      width: 100%;
+    }
+
     &:focus {
       outline: none;
       box-shadow: 0 1rem 2rem rgba($color-black, .1);
@@ -35,7 +39,7 @@
       border-bottom: 3px solid $color-secondary-dark;
     }
 
-    // not supported in all browser. We are targetting a browser element, which is the
+    // not supported in all browsers. We are targetting a browser element, which is the
     // placeholder. Firefox do not need this property
     &::-webkit-input-placeholder {
       color: $color-grey-dark-2;
@@ -67,6 +71,11 @@
   &__radio-group {
     width: 40%;
     display: inline-block;
+
+    @include respond(tab-port) {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
   }
 
   &__radio-label {
@@ -107,7 +116,7 @@
       width: 1.3rem;
       border-radius: 50%;
 
-      position: absolute;  // why is this targetting its inmediate parent of absolute position
+      position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
