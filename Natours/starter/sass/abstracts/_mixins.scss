@@ -17,7 +17,7 @@
 
 /*
 0 - 600px:    Phone
-600 - 900px:  Tablet protrait
+600 - 900px:  Tablet portrait
 900 - 1200px: Tablet landscape
 1200:         Big desktop
 1200 - 18000  Normal styles apply
@@ -34,9 +34,10 @@ $breakpoint argument choices:
 // em and rems are not affected by the root font size setting
 // use em and not rems as rems dont work in all browsers
 // em is what is usually used for media queries
-// if 1 em is 60px, 600/16 is 37.5em, 900/16 is ...
 
-/* The recommended order to apply this mixins is as follows
+// if 1 em is 16px, 600/16 is 37.5em, 900/16 is ...
+
+/* The recommended order (by Maxwell) to apply this mixins is as follows
 
 Base
 typhography

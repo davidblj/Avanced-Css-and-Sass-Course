@@ -39,6 +39,7 @@
       </div>
 
       <header class="header">
+
             <!-- image wrapper  -->
             <div class="header__logo-box">
                 &nbsp;
@@ -90,9 +91,56 @@
               </div>
               <div class="col-1-of-2">
                 <div class="composition">
-                  <img src="img/nat-1-large.jpg" alt="Photo 1" class="composition__photo composition__photo--p1">
+
+                  <!-- <img src="img/nat-1-large.jpg" alt="Photo 1" class="composition__photo composition__photo--p1">
                   <img src="img/nat-2-large.jpg" alt="Photo 2" class="composition__photo composition__photo--p2">
-                  <img src="img/nat-3-large.jpg" alt="Photo 3" class="composition__photo composition__photo--p3">
+                  <img src="img/nat-3-large.jpg" alt="Photo 3" class="composition__photo composition__photo--p3"> -->
+
+                  <!-- resolution switch approach -->
+
+                  <!-- how to compute the vw of an image: is its width
+                       at that specific breakpoint, divided by the breakpoint width:
+                       171/900 = 0.19 ~ 20 -->
+
+                  <!-- the srcset width corresponds to the image width -->
+
+                   <!--
+                   sizes
+
+                     A list of one or more strings separated by commas indicating a set of source sizes.
+                     Each source size consists of:
+
+                       a media condition. This must be omitted for the last item.
+                       a source size value.
+
+                    with these attributes in place, the browser will:
+
+                    1. Look at its device width
+                    2. Work out which media condition in the sizes list is the first one to be true
+                    3. Look at the slot size given to that media query
+                    4. Load the image referenced in the srcset list that most closely matches the chosen slot size
+                   -->
+
+                   <!-- 900px ~ 56.75, 600px ~ 37.5 -->
+
+                  <img srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w"
+                       sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
+                       alt="Photo 1"
+                       class="composition__photo composition__photo--p1"
+                       src="img/nat-1-large.jpg">
+
+                  <img srcset="img/nat-2.jpg 300w, img/nat-2-large.jpg 1000w"
+                       sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
+                       alt="Photo 2"
+                       class="composition__photo composition__photo--p2"
+                       src="img/nat-2-large.jpg">
+
+                  <img srcset="img/nat-3.jpg 300w, img/nat-3-large.jpg 1000w"
+                       sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
+                       alt="Photo 3"
+                       class="composition__photo composition__photo--p3"
+                       src="img/nat-3-large.jpg">
+
                 </div>
               </div>
             </div>
@@ -378,13 +426,29 @@
                 </div>
               </div>
             </div>
-            
+
           </section>
 
           <footer class="footer">
 
             <div class="footer__logo-box">
-              <img src="img/logo-green-2x.png" alt="Full logo" class="footer__logo">
+
+              <!-- art direction approach -->
+              <picture class="footer_logo">
+
+                <!-- 1x stands for low resolution, 2x stands for high resolution -->
+                <source srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x"
+                        media="(max-width: 37.5em)">
+
+                <!-- this is an image fallback, this is also the default and automatic set up used for image
+                     responsiveness -->
+                <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x"
+                     alt="Full logo"
+                     class="footer__logo"
+                     src="img/logo-green-2x.png">
+
+              </picture>
+
             </div>
 
             <div class="row">

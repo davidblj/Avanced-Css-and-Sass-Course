@@ -6,11 +6,47 @@
       to right bottom,
       rgba($color-primary-light, 0.8),
       rgba($color-primary-dark, 0.8)),
-      url(../img/hero.jpg);
+      url(../img/hero-small.jpg);
     background-size: cover;
     background-position: top;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+    // dpi ~ dppx, 1dppx ~ 96dpi, 2dppx ~ 192dpi, 3dppx ~ 288dpi
+    // dpi stands for pixels per inch
+    // dppx stands for the amount of physical pixels inside a CSS pixel
+
+    // smaller the display (physical pixels) and greater the res (css pixels),
+    // greater the dppx, greater the dppx, greater the dpi
+
+    // high resolution screens do not relate to the screen actual size. Now, a
+    // phone may yield high resolutions, but we may not need high resolution
+    // images :
+
+    // http://dpi.lv/
+    // dppx (times) the width of the screen (in css pixels) gives us the
+    // maximum size in pixels the screen (the web browser) can hold for an image
+
+      // say 2dppx x 600px = 1200px; in screens lower than 600px, we wont need
+      // images bigger than 1200px of width.
+
+    // this media query stands for: if density level is 2 times or more and the width
+    // is 600px or more, or if the width is greater than 2000px, use the larger image
+    // take a look at the matrix at the end of this file
+
+      // 600/16 = 37.5em and 2000/16 = 125em
+
+    @media (min-resolution: 192dpi) and (min-width: 37.5em),
+           (min-width: 125em) {
+
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)),
+        url(../img/hero.jpg);
+    }
+
+
 
     @include respond(phone) {
 
@@ -39,3 +75,27 @@
       text-align: center;
     }
 }
+
+  // imagen de 1200 y 2000
+
+  // si la res se pasa de los 1200 pixeles reales, sirva la imagen de los 2000 px
+  // por que no tiene sentido servir la imagen de los 2000 px con resoluciones
+  // menores a los 1200px
+
+  // 2000 en res mayores o iguales 600, en nivel 2 igual o mayor
+  // 2000 en res iguales o mayores a 2000, en nivel 1
+
+  //  res/dppx   1       2     3
+
+  //  600      600  |  1200  1800
+  //  900      900  |  1800  2700
+  //  1200     1200 |  2400  3600
+  //  1800     1800 |  3600  5400
+
+//  -----------------------------
+
+  //  2000  |  2000    4000  6000
+
+
+  // This rule defined by max is not consistent for 1800px and level 1 tresh holds.
+  // i would apply the second rule to 1800 resolutions, or greater

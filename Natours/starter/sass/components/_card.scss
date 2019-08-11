@@ -185,6 +185,9 @@
     font-weight: 100;
   }
 
+
+  // this is an entire overhaul. This special case requires to rerwite every
+  // style, because its easier
   @include respond(tab-port) {
 
     height: auto;
@@ -238,7 +241,7 @@
 
       ul {
 
-        padding: 0;        
+        padding: 0;
       }
     }
   }

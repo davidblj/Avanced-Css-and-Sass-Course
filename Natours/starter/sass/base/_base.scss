@@ -1,5 +1,4 @@
-// for basic definitions (element styling)
-// or "globals"
+// for basic definitions (element styling) and globals
 
 *,
 *::after
@@ -11,8 +10,10 @@
 
 html {
 
-    // this defines what 1rem is
-    font-size: 62.5%; // 1rem is equal to 10px; 10px/16px = 62.5%
+    // the default browser font size is set to 16 px, 1 rem is equal to the
+    // default browser font size
+
+    font-size: 62.5%; // if 16px is a 100%, how much 10px will be ?
 
     @include respond(tab-land) {
       font-size: 56.25%; // 9px
