@@ -10,7 +10,7 @@
     background-size: cover;
     background-position: top;
 
-    @supports (clip-path: polygon(0 0) or -webkit-clip-path: polygon(0 0)) {
+    @supports ( (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) ) {
 
       -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
       clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);

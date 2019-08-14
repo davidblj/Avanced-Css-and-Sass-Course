@@ -34,7 +34,7 @@
     overflow: hidden;
     border-radius: 50%;
 
-    @supports (clip-path: polygon(0 0) or -webkit-clip-path: polygon(0 0)) {
+    @supports ( (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) ) {
 
       // circle(radious size, relative to its width, positioned in x and y coordinates))
       -webkit-shape-outside: circle(50% at 50% 50%);
@@ -42,6 +42,7 @@
       -webkit-clip-path: circle(50% at 50% 50%);
       clip-path: circle(50% at 50% 50%);
       border-radius: none;
+
     }
 
     @include respond(phone) {
