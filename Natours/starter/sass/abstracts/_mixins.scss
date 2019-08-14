@@ -47,19 +47,22 @@ components
 */
 @mixin respond($breakpoint) {
 
+  // 'only screen' allows the user to print the web page without the media queries
+  // in an active state
+
   @if $breakpoint == tab-land {
-    @media (max-width: 56.25em) { @content }; // less than 900px
+    @media only screen and (max-width: 56.25em) { @content }; // less than 900px
   }
 
   @if $breakpoint == tab-port {
-    @media (max-width: 50em)  { @content }; // less than 600px
+    @media only screen and (max-width: 50em)  { @content }; // less than 600px
   }
 
   @if $breakpoint == phone {
-    @media (max-width: 37em) { @content }; // less than 400px
+    @media only screen and (max-width: 37em) { @content }; // less than 400px
   }
 
   @if $breakpoint == big-desktop {
-    @media (min-width: 70em) { @content }; // 1800px
+    @media only screen and (min-width: 70em) { @content }; // 1800px
   }
 }

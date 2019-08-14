@@ -57,13 +57,13 @@ components
 
 html {
   font-size: 62.5%; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     html {
       font-size: 56.25%; } }
-  @media (max-width: 50em) {
+  @media only screen and (max-width: 50em) {
     html {
       font-size: 50%; } }
-  @media (min-width: 70em) {
+  @media only screen and (min-width: 70em) {
     html {
       font-size: 75%; } }
 
@@ -71,9 +71,13 @@ body {
   box-sizing: border-box;
   padding: 3rem;
   margin: 0; }
-  @media (max-width: 50em) {
+  @media only screen and (max-width: 50em) {
     body {
       padding: 0; } }
+
+::selection {
+  background-color: #55c57a;
+  color: #fff; }
 
 body {
   font-family: "Lato", sans-serif;
@@ -93,7 +97,7 @@ body {
     animation-name: moveInLeft;
     animation-duration: 1s;
     animation-timing-function: ease-out; }
-    @media (max-width: 37em) {
+    @media only screen and (max-width: 37em) {
       .heading-primary--main {
         letter-spacing: 1rem;
         font-family: 5rem; } }
@@ -104,7 +108,7 @@ body {
     letter-spacing: 1.75rem;
     animation: moveInRight 1s ease-out;
     backface-visibility: hidden; }
-    @media (max-width: 37em) {
+    @media only screen and (max-width: 37em) {
       .heading-primary--sub {
         font-family: .5rem; } }
 
@@ -118,10 +122,10 @@ body {
   color: transparent;
   letter-spacing: 2px;
   transition: all .2s; }
-  @media (max-width: 50em) {
+  @media only screen and (max-width: 50em) {
     .heading-secondary {
       font-size: 3rem; } }
-  @media (max-width: 37em) {
+  @media only screen and (max-width: 37em) {
     .heading-secondary {
       font-size: 2.5rem; } }
   .heading-secondary:hover {
@@ -146,13 +150,13 @@ body {
 
 .u-margin-bottom-medium {
   margin-bottom: 4rem !important; }
-  @media (max-width: 50em) {
+  @media only screen and (max-width: 50em) {
     .u-margin-bottom-medium {
       padding: 3rem !important; } }
 
 .u-margin-bottom-big {
   margin-bottom: 8rem !important; }
-  @media (max-width: 50em) {
+  @media only screen and (max-width: 50em) {
     .u-margin-bottom-big {
       margin-bottom: 5rem !important; } }
 
@@ -249,6 +253,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     border-radius: 3px;
     overflow: hidden;
@@ -330,7 +335,7 @@ body {
   .card__price-value {
     font-size: 6rem;
     font-weight: 100; }
-  @media (max-width: 50em) {
+  @media only screen and (max-width: 56.25em), only screen and (hover: none) {
     .card {
       height: auto;
       border-radius: 3px;
@@ -374,7 +379,7 @@ body {
     z-index: 10;
     transition: all .2s;
     outline-offset: 2rem; }
-    @media (max-width: 50em) {
+    @media only screen and (max-width: 50em) {
       .composition__photo {
         float: left;
         position: relative;
@@ -384,14 +389,14 @@ body {
     .composition__photo--p1 {
       left: 0;
       top: -2rem; }
-      @media (max-width: 50em) {
+      @media only screen and (max-width: 50em) {
         .composition__photo--p1 {
           top: 0;
           transform: scale(1.2); } }
     .composition__photo--p2 {
       right: 0;
       top: 2rem; }
-      @media (max-width: 50em) {
+      @media only screen and (max-width: 50em) {
         .composition__photo--p2 {
           top: -1rem;
           transform: scale(1.3);
@@ -399,7 +404,7 @@ body {
     .composition__photo--p3 {
       left: 20%;
       top: 10rem; }
-      @media (max-width: 50em) {
+      @media only screen and (max-width: 50em) {
         .composition__photo--p3 {
           top: 0;
           left: 0;
@@ -420,7 +425,7 @@ body {
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
   transition: transform .3s; }
-  @media (max-width: 50em) {
+  @media only screen and (max-width: 50em) {
     .feature-box {
       padding: 2rem; } }
   .feature-box__icon {
@@ -430,7 +435,7 @@ body {
     background-image: linear-gradient(to right, #7ed56f, #28b485);
     -webkit-background-clip: text;
     color: transparent; }
-    @media (max-width: 50em) {
+    @media only screen and (max-width: 50em) {
       .feature-box__icon {
         margin-bottom: 0; } }
   .feature-box:hover {
@@ -446,11 +451,11 @@ body {
   padding-left: 9rem;
   font-size: 1.6rem;
   transform: skewX(-12deg); }
-  @media (max-width: 50em) {
+  @media only screen and (max-width: 50em) {
     .story {
       padding: 4rem;
       padding-left: 6rem; } }
-  @media (max-width: 37em) {
+  @media only screen and (max-width: 37em) {
     .story {
       transform: skewX(0); } }
   .story__shape {
@@ -458,13 +463,18 @@ body {
     height: 15rem;
     float: left;
     margin: 0;
-    -webkit-shape-outside: circle(50% at 50% 50%);
-    shape-outside: circle(50% at 50% 50%);
-    -webkit-shape-outside: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
     transform: translateX(-3rem) skewX(12deg);
-    position: relative; }
-    @media (max-width: 37em) {
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%; }
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      .story__shape {
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        border-radius: none; } }
+    @media only screen and (max-width: 37em) {
       .story__shape {
         width: 10rem;
         height: 10rem;
@@ -476,7 +486,7 @@ body {
     transform: translateX(-4rem) scale(1.4); }
   .story__text {
     transform: skewX(12deg); }
-    @media (max-width: 37em) {
+    @media only screen and (max-width: 37em) {
       .story__text {
         transform: skewX(0); } }
   .story__caption {
@@ -527,7 +537,7 @@ body {
   width: 60%;
   display: block;
   transition: all .3s; }
-  @media (max-width: 50em) {
+  @media only screen and (max-width: 50em) {
     .form__input {
       width: 100%; } }
   .form__input:focus {
@@ -555,7 +565,7 @@ body {
 .form__radio-group {
   width: 40%;
   display: inline-block; }
-  @media (max-width: 50em) {
+  @media only screen and (max-width: 50em) {
     .form__radio-group {
       width: 100%;
       margin-bottom: 2rem; } }
@@ -605,9 +615,12 @@ body {
   z-index: 9999;
   visibility: hidden;
   opacity: 0;
-  transition: all .3s;
-  @supp -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px); }
+  transition: all .3s; }
+  @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+    .popup {
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      background-color: rgba(0, 0, 0, 0.3); } }
   .popup__content {
     position: absolute;
     top: 50%;
@@ -681,11 +694,11 @@ body {
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
   text-align: center;
   cursor: pointer; }
-  @media (max-width: 50em) {
+  @media only screen and (max-width: 50em) {
     .navigation__button {
       top: 4.5rem;
       right: 4.5rem; } }
-  @media (max-width: 37em) {
+  @media only screen and (max-width: 37em) {
     .navigation__button {
       top: 3rem;
       right: 3rem; } }
@@ -700,11 +713,11 @@ body {
   background-image: radial-gradient(#7ed56f, #28b485);
   z-index: 1000;
   transition: transform .8s; }
-  @media (max-width: 50em) {
+  @media only screen and (max-width: 50em) {
     .navigation__background {
       top: 5rem;
       right: 5rem; } }
-  @media (max-width: 37em) {
+  @media only screen and (max-width: 37em) {
     .navigation__background {
       top: 3.5rem;
       right: 3.5rem; } }
@@ -798,7 +811,7 @@ body {
   margin: 0 auto; }
   .row:not(:last-child) {
     margin-bottom: 8rem; }
-    @media (max-width: 50em) {
+    @media only screen and (max-width: 50em) {
       .row:not(:last-child) {
         margin-bottom: 6rem;
         padding: 0 3rem; } }
@@ -806,18 +819,18 @@ body {
     content: "";
     display: table;
     clear: both; }
-  @media (max-width: 50em) {
+  @media only screen and (max-width: 50em) {
     .row {
       max-width: 50rem; } }
   .row [class^="col-"] {
     float: left; }
     .row [class^="col-"]:not(:last-child) {
       margin-right: 6rem; }
-      @media (max-width: 50em) {
+      @media only screen and (max-width: 50em) {
         .row [class^="col-"]:not(:last-child) {
           margin-right: 0;
           margin-bottom: 6rem; } }
-    @media (max-width: 50em) {
+    @media only screen and (max-width: 50em) {
       .row [class^="col-"] {
         width: 100% !important; } }
   .row .col-1-of-2 {
@@ -834,17 +847,20 @@ body {
     width: calc( 3 * ((100% - 3 * 6rem) / 4) + 2 * 6rem); }
 
 .header {
-  height: 95vh;
+  height: 85vh;
   position: relative;
   background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero-small.jpg);
   background-size: cover;
-  background-position: top;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
-  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+  background-position: top; }
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+    .header {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+      height: 95vh; } }
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), only screen and (min-width: 125em) {
     .header {
       background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg); } }
-  @media (max-width: 37em) {
+  @media only screen and (max-width: 37em) {
     .header {
       -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
       clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); } }
@@ -866,13 +882,13 @@ body {
   padding: 18rem 0;
   font-size: 1.4rem;
   color: #f7f7f7; }
-  @media (max-width: 50em) {
+  @media only screen and (max-width: 50em) {
     .footer {
       padding: 8rem 0; } }
   .footer__logo-box {
     text-align: center;
     margin-bottom: 8rem; }
-    @media (max-width: 50em) {
+    @media only screen and (max-width: 50em) {
       .footer__logo-box {
         margin-bottom: 4rem; } }
   .footer__logo {
@@ -882,7 +898,7 @@ body {
     border-top: 1px solid #777;
     padding-top: 2rem;
     display: inline-block; }
-    @media (max-width: 50em) {
+    @media only screen and (max-width: 50em) {
       .footer__navigation {
         width: 100%;
         text-align: center; } }
@@ -909,7 +925,7 @@ body {
     padding-top: 2rem;
     width: 80%;
     float: right; }
-    @media (max-width: 50em) {
+    @media only screen and (max-width: 50em) {
       .footer__copyright {
         width: 100%;
         float: none; } }
@@ -918,7 +934,7 @@ body {
   background-color: #f7f7f7;
   padding: 25rem 0;
   margin-top: -20vh; }
-  @media (max-width: 50em) {
+  @media only screen and (max-width: 50em) {
     .section-about {
       padding: 20rem 0; } }
 
@@ -930,7 +946,7 @@ body {
   margin-top: -12rem; }
   .section-features > * {
     transform: skewY(7deg); }
-  @media (max-width: 50em) {
+  @media only screen and (max-width: 50em) {
     .section-features {
       padding: 10rem 0; } }
 
@@ -938,21 +954,21 @@ body {
   background-color: #f7f7f7;
   padding: 25rem 0 15rem 0;
   margin-top: -12rem; }
-  @media (max-width: 50em) {
+  @media only screen and (max-width: 50em) {
     .section-tours {
       padding: 20rem 0 10rem 0; } }
 
 .section-stories {
   position: relative;
   padding: 15rem 0; }
-  @media (max-width: 50em) {
+  @media only screen and (max-width: 50em) {
     .section-stories {
       padding: 10rem 0; } }
 
 .section-book {
   padding: 15rem 0;
   background-image: linear-gradient(to right bottom, #7ed56f, #28b485); }
-  @media (max-width: 50em) {
+  @media only screen and (max-width: 50em) {
     .section-book {
       padding: 10rem 0; } }
 
@@ -961,19 +977,19 @@ body {
   background-size: 100%;
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2); }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .book {
       background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 65%, transparent 65%), url(../img/nat-10.jpg);
       background-size: cover; } }
-  @media (max-width: 50em) {
+  @media only screen and (max-width: 50em) {
     .book {
       background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%), url(../img/nat-10.jpg); } }
   .book__form {
     width: 50%;
     padding: 6rem 6rem 4rem 6rem; }
-    @media (max-width: 56.25em) {
+    @media only screen and (max-width: 56.25em) {
       .book__form {
         width: 65%; } }
-    @media (max-width: 50em) {
+    @media only screen and (max-width: 50em) {
       .book__form {
         width: 100%; } }

@@ -192,7 +192,11 @@
 
   // this is an entire overhaul. This special case requires to rerwite every
   // style, because its easier
-  @include respond(tab-port) {
+
+  // do apply a media query, OR do apply this rules if the device cant hover
+  // like a normal desktop computer
+  @media only screen and (max-width: 56.25em),
+         only screen and (hover : none)   {
 
     height: auto;
     border-radius: 3px;
