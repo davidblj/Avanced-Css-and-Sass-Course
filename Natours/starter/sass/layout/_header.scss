@@ -37,8 +37,13 @@
       // say 2dppx x 600px = 1200px; in screens lower than 600px, we wont need
       // images bigger than 1200px of width.
 
-    // this media query stands for: if density level is 2 times or more and the width
-    // is 600px or more, or if the width is greater than 2000px, use the larger image
+    // this media query stands for:
+
+      // if density level is 2 times (in dppx or dpi) or more and the width is 600px or more
+      // or if the width is greater than 2000px,
+
+        // then use the larger image
+
     // take a look at the matrix at the end of this file
 
       // 600/16 = 37.5em and 2000/16 = 125em
@@ -103,5 +108,5 @@
   //  2000  |  2000    4000  6000
 
 
-  // This rule defined by max is not consistent for 1800px and level 1 tresh holds.
-  // i would apply the second rule to 1800 resolutions, or greater
+  // This rule defined by max is not consistent for 1200px and level 1 tresh holds.
+  // i would apply the second rule to 1200 resolutions and level 1, or greater
