@@ -1,0 +1,37 @@
+
+.container  {
+
+  max-width: 120rem;
+  min-height: 50rem;
+  margin: 8rem auto;
+  background-color: var(--color-grey-light-2);
+  box-shadow: var(--shadow-dark);
+}
+
+.header {
+
+  font-size: 1.4rem; // global font size reset, as 10 is way to low
+  height: 7rem;
+  border-color: #fff;
+  background-color: var(--color-grey-light-1);
+  border-bottom: var(--color-grey-light-2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+}
+
+.sidebar {
+
+  // grow shrink basis
+  flex: 0 0 18%;
+}
+
+.hotel-view {
+
+  background-color: #fff;
+  flex: 1;
+}
