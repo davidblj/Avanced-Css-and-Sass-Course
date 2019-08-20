@@ -21,17 +21,27 @@
 }
 
 .content {
+  
   display: flex;
 }
 
 .sidebar {
 
-  // grow shrink basis
+  // grow, shrink, basis
   flex: 0 0 18%;
+
+  // make a new flex container, note how we define
+  // properties that are both for flex items and for flex container
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .hotel-view {
 
   background-color: #fff;
+  height: 80rem;
+
+  // span the whole width
   flex: 1;
 }
