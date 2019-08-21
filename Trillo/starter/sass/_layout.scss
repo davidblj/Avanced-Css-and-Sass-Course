@@ -21,7 +21,7 @@
 }
 
 .content {
-  
+
   display: flex;
 }
 
@@ -29,6 +29,7 @@
 
   // grow, shrink, basis
   flex: 0 0 18%;
+  background-color: var(--color-grey-dark-1);
 
   // make a new flex container, note how we define
   // properties that are both for flex items and for flex container
