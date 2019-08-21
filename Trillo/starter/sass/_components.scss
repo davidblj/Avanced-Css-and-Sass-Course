@@ -183,7 +183,7 @@
     // property, time, cubic, delay
     transition: transform .2s,
                 width .4s cubic-bezier(1,0,0,1) .2s,
-                background-color .1s;
+                background-color .1;
   }
 
   // when this item is hovered upon or active, target its before element
@@ -194,7 +194,7 @@
   }
 
   &__item:active::before {
-    background: var(--color-primary-light;
+    background: var(--color-primary-light);
   }
 
   // target 'a' tags
@@ -234,4 +234,64 @@
   color: var(--color-grey-light-4);
   text-align: center;
   padding: 2.5rem;
+}
+
+////////////////// GALLERY
+
+.gallery {
+
+  display: flex;
+
+  &__photo {
+
+    // flex will try to merge all of the 3 images inside a row. usually
+    // 100% of width will spawn the whole vw without flex
+    width: 100%;
+
+    // avoid blank spaces under an image when its an inline element
+    display: block;
+  }
+}
+
+////////////////// OVERVIEW
+
+.overview {
+
+  display: flex;
+
+  &__heading {
+
+  }
+
+  &__stars {
+
+    // margin 'auto' makes this element to push the remaining content to
+    // its right, and in no need to componentize further the overview sections
+    // into 2 blocks
+
+    margin-right: auto;
+  }
+
+  &__icon-star,
+  &__icon-location {
+
+    width: 1.75rem;
+    height: 1.75rem;
+    fill: var(--color-primary);
+  }
+
+  &__location {
+  }
+
+  &__rating {
+
+  }
+
+  &__rating-average {
+
+  }
+
+  &__rating-count {
+
+  }
 }
