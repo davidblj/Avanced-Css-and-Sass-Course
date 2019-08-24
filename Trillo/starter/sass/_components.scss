@@ -382,3 +382,102 @@
     box-shadow: none;
   }
 }
+
+////////////////// PARAGRAPH
+
+// select every paragraph element, but not the last on - on this container
+.paragraph:not(:last-of-type) {
+
+  margin-bottom: 2rem;
+}
+
+////////////////// LIST
+
+.list {
+
+  list-style: none;
+  margin: 3rem 0;
+  padding: 3rem 0;
+  border-top: var(--line);
+  border-bottom: var(--line);
+
+  display: flex;
+
+  // if we dont set this property, all of the list items will try to fit
+  // in just one line, even if the flex basis is set to 50%, the content
+  // will overflow the parent container
+  flex-wrap: wrap;
+
+  &__item {
+
+    // occupy the 50% of the parent width
+    flex: 0 0 50%;
+    margin-bottom: .7rem;
+  }
+
+  // icon set up
+  &__item::before {
+
+    content: "";
+    display: inline-block;
+    height: 1rem;
+    width: 1rem;
+    margin-right: .7rem;
+
+    // old approach
+    // background-image: url(../img/chevron-thin-right.svg);
+    // background-size: cover;
+
+    // new approach
+    background-color: var(--color-primary);
+
+    // the 'mask' is a property that allows to see 'through' an image, masks
+    // are the only way to fill svgs with background colors.
+    // note: property only available in webkit
+    -webkit-mask-image: url(../img/chevron-thin-right.svg);
+    -webkit-mask-size: cover;  // cover works quite diffrent here,
+                               // to overflow its content through the parent
+                               // as the content of this image will get clipped
+                               // because it wont fit its parent container
+
+    // fallback for browsers that supports this property without a webkit prefix
+    mask-image: url(../img/chevron-thin-right.svg);
+    mask-size: cover;
+  }
+}
+
+////////////////// RECOMMEND
+
+.recommend {
+
+  font-size: 1.3rem;
+  color: var(--color-grey-dark-3);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__count {    
+  }
+
+  &__friends {
+
+  }
+
+  &__photo {
+
+    // images shrink because the border box property makes the 'border'
+    // to count in the total height of the object, we dont want that as
+    // the image will look smaller, thats why we set it to its default value:
+    // content-box
+    box-sizing: content-box;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    border: 3px solid #fff;
+
+    &:not(:last-child) {
+      margin-right: -1.5rem;
+    }
+  }
+}
