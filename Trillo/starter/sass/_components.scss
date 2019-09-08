@@ -6,7 +6,7 @@
   margin-left: 2rem;
 }
 
-////////////////// SEARCH
+//////////////////
 
 .search {
 
@@ -16,6 +16,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  // do put the search bar at the end of all components
+  // and make it span the whole width so its wrapped into a new line
+  @media only screen and (max-width: $bp-smallest) {
+
+    order: 1;
+    flex: 0 0 100%;
+    background-color: var(--color-grey-light-2);
+  }
 
   &__input {
 
@@ -235,6 +244,12 @@
       padding: 2rem;
       justify-content: center;
     }
+
+    @media only screen and (max-width: $bp-small) {
+
+      flex-direction: column;
+      padding: 1.5rem .5rem;
+    }
   }
 
   &__icon {
@@ -246,6 +261,14 @@
     // inherit the color set on its parent; this property is dynamic
     // meaning that if the parent changes its color, so it does this node
     fill: currentColor;
+
+    @media only screen and (max-width: $bp-small) {
+
+      margin-right: 0;
+      margin-bottom: .7rem;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 }
 
@@ -296,6 +319,12 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 3rem;
+
+    @media only screen and (max-width: $bp-small) {
+
+      font-size: 1.8rem;
+      padding: 1.25rem 2rem;
+    }
   }
 
   &__stars {
@@ -345,6 +374,10 @@
     align-items: center;
     justify-content: center;
 
+    @media only screen and (max-width: $bp-largest) {
+
+      padding: 0 1.5rem;
+    }
   }
 
   &__rating-average {
@@ -355,12 +388,22 @@
     // use a negative margin to decrease the space between this element
     // and the rating count
     margin-bottom: -3px;
+
+    @media only screen and (max-width: $bp-small) {
+
+      font-size: 1.8rem;
+    }
   }
 
   &__rating-count {
 
     font-size: .8rem;
     text-transform: uppercase;
+
+    @media only screen and (max-width: $bp-small) {
+
+      font-size: .5rem;
+    }
   }
 }
 
@@ -501,7 +544,7 @@
   &__friends {
 
     // by setting the photos container to flex, we guarantee
-    // that each child will stay one beside another, and never
+    // that each child will stay side by side, and never
     // break through a new line
     display: flex;
   }
