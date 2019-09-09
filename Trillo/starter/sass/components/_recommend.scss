@@ -1,0 +1,39 @@
+
+.recommend {
+
+  font-size: 1.3rem;
+  color: var(--color-grey-dark-3);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__count {
+  }
+
+  &__friends {
+
+    // by setting the photos container to flex, we guarantee
+    // that each child will stay side by side, and never
+    // break through a new line
+    display: flex;
+  }
+
+  &__photo {
+
+    // images shrink because the border box property makes the 'border'
+    // to count in the total height of the object, we dont want that as
+    // the image will look smaller, thats why we set it to its default value:
+    // content-box
+    box-sizing: content-box;
+
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    border: 3px solid #fff;
+
+    &:not(:last-child) {
+      margin-right: -2rem;
+    }
+  }
+}
