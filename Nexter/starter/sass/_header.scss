@@ -1,0 +1,8 @@
+
+.header {
+  background-color: $color-grey-dark-1;
+
+  // the header won't occupy the full width of this row, but only the first
+  // 6 columns
+  grid-column: full-start / col-end 6;
+}
