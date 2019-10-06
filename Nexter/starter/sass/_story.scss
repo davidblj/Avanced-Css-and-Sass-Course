@@ -4,10 +4,57 @@
   &__pictures {
     background-color: $color-primary;
     grid-column: full-start / col-end 4;
+    background-image: linear-gradient(rgba($color-primary, .5), rgba($color-primary, .5)), url(../img/back.jpg);
+
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  &__img--1 {
+    width: 100%;
+    grid-row: 2 / 6;
+    grid-column: 2 / 6;  // images wont fit the entire area, to keep the aspect ratio.
+    align-items: center; // and so we center the image inside the area we assign to it
+    box-shadow: 0 2rem 5rem rgba(#000, .1);
+  }
+
+  // and this is how you overlap one image on top of another.
+  &__img--2 {
+    width: 115%;
+    grid-row: 4 / 6;
+    grid-column: 4 / 7;
+    z-index: 20;
+    box-shadow: 0 2rem 5rem rgba(#000, .2);
   }
 
   &__content {
     background-color: $color-grey-light-1;
     grid-column: col-start 5 / full-end;
+
+    // to make the padding responsive, the sides margin is set to
+    // to the vw.
+    padding: 6rem 8vw;
+
+    // note that we are dealing with one dimensional layout. Is usually more
+    // convenient to use flexbox for one dimensional layouts.
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+
+    // css grid approach: this approach may seem simpler, buts its counter intuitive
+    // just take a look at the final grid.
+
+    /*
+    display: grid:
+    align-content: center;
+    justify-items: start;
+    */
+  }
+
+  &__text {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-bottom: 4rem;
   }
 }

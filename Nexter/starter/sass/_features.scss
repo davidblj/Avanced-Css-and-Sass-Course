@@ -6,6 +6,39 @@
 
   // grid elements can become grid elements as well
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+
+  // grid-template-columns: repeat(3, 1fr); https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/
+  // this is how we make this grid responsive without media queries 
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+
   grid-gap: 6rem;
+
+  // align-items by default is set to stretch. We need the text boxes to
+  // be aligned, but as each content box has a different height, 'stretch'
+  // will try to make them span the entire row height and to kind of
+  // 'center align' them, breaking the simmetry we want to apply.
+  align-items: start;
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-row-gap: 1.5rem;
+  grid-column-gap: 2.5rem;
+
+  &__icon {
+    fill: $color-primary;
+    width: 4.5rem;
+    height: 4.5rem;
+    transform: translateY(-1rem);
+
+    // grid-row: 1 / -1;     // this won't work; -1 is for explicit and not implicit
+                             // grids
+
+    grid-row: 1 / span 2;
+  }
+
+  &__text {
+    font-size: 1.7rem;
+  }
 }
