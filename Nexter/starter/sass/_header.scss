@@ -5,4 +5,47 @@
   // the header won't occupy the full width of this row, but only the first
   // 6 columns
   grid-column: full-start / col-end 6;
+  background-image: linear-gradient(rgba($color-secondary, .93),
+  rgba($color-secondary, .93)), url(../img/hero.jpeg);
+  background-position: center;
+  padding: 8rem;
+  padding-top: 4rem;
+  display: grid;
+
+  // This grid is quite clever. This is how we produce
+  // a similar effect as justify-content, but without
+  // extra containers between the element 'sections'; The title and
+  // the button spans the remaining space making a 'center' like placement
+  // layout.
+  grid-template-rows: 1fr min-content 6rem 1fr;
+  // we want to limit this grid to its max content and not the container width
+  // grid-template-columns: max-content;
+  grid-row-gap: 1.5rem;
+  justify-content: center; // grid template column is quite unncessary
+                           // (course mistake)
+
+  &__logo {
+    height: 3rem;
+    justify-self: center;
+
+  }
+
+  &__btn {
+    // note that this button positions itself under a '1fr' sized row
+    // each element is by default streched in the x (align-self)
+    // and y (justify-self) axis
+    align-self: start;
+    justify-self: start;
+  }
+
+  &__seen-on-text {
+
+  }
+
+  &__seen-on-logos {
+
+    img {
+      height: 2.5rem;
+    }
+  }
 }
