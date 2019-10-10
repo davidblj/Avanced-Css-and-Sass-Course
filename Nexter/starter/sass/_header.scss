@@ -27,7 +27,6 @@
   &__logo {
     height: 3rem;
     justify-self: center;
-
   }
 
   &__btn {
@@ -39,13 +38,36 @@
   }
 
   &__seen-on-text {
+    display: grid;
+    font-size: 1.6rem;
+    color: $color-grey-light-2;
+    // lines alignment into a single row
+    grid-template-columns: 1fr max-content 1fr;
+    grid-column-gap: 1.5rem;
+    align-items: center;
 
+    &::before,
+    &::after {
+      content: "";
+      // do note that if we dont configure any grid columns, each one of this elemnts
+      // will spawn an entire row
+      height: 1px;
+      display: block;
+      background-color: currentColor;
+    }
   }
 
   &__seen-on-logos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-start: 3rem;
+    justify-items: center;
 
     img {
       height: 2.5rem;
+
+      // dim the image
+      filter: brightness(70%);
     }
   }
 }
