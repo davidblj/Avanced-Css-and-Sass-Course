@@ -50,7 +50,9 @@
     &::after {
       content: "";
       // do note that if we dont configure any grid columns, each one of this elemnts
-      // will spawn an entire row
+      // will spawn an entire row, and take a look at how this elements behave
+      // just like child elements would do. Why ?, because grids also
+      // apply to text elements.
       height: 1px;
       display: block;
       background-color: currentColor;

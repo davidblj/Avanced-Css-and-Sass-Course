@@ -2,4 +2,37 @@
 .realtors {
   background-color: $color-secondary;
   grid-column: col-start 7 / full-end;
+  padding: 3rem;
+  height: 100%;
+
+  // center alignment of the elements; you might as well do this with flex
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  justifyitems: center;
+  grid-row-gap: 2rem;
+
+  &__list {
+    display: grid;
+    // take a look at the placement of the items: it was completly unnecessary
+    // to wrap the image and the image description inside html tags
+    // By defining 2 columns, we know that every 2 elemnts, a line break its
+    // going to occur
+    grid-template-columns: min-content max-content;
+    grid-column-gap: 2rem;
+    // the margin change as the view port does
+    grid-row-gap: 5vh;
+  }
+
+  &__img {
+    width: 7rem;
+    border-radius: 50%;
+    display: block;
+  }
+
+  &__sold {
+    text-transform: uppercase;
+    color: $color-grey-light-2;
+    margin-top: -3px;
+  }
 }

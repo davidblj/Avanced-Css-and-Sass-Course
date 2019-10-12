@@ -38,7 +38,10 @@ body {
   display: grid;
 
   // note that one row is in function of the viewport width, and 4 of them
-  //  as tall as their contents
+  // as tall as their contents
+  // NOTES: you must know how the html is going to adapt into this grid
+  // meaning that if you add a new tag in our grid, the whole placement
+  // of the html is going to be completly misaligned 
   grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
 
   // we make 8 columns, as its a common standard to place our
