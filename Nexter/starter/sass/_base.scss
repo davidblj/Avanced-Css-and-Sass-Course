@@ -15,6 +15,10 @@ $color-grey-dark-2: #6D5D4B;
 $font-primary: 'Nunito', sans-serif;
 $font-display: 'Josefin Sans', sans-serif;
 
+// RESPONSIVE BREAKPOINTS
+$bp-largest: 75em;          // 1200px, if 1em -> 16px, 1200px ? 1200px / 16.
+$bp-large: 62.5em;          // 1000px
+
 *,
 *::before,
 *::after {
@@ -26,6 +30,10 @@ $font-display: 'Josefin Sans', sans-serif;
 html {
   box-sizing: border-box;
   font-size: 62.5%;        // 1rem equals 10px
+
+  @media only screen and (max-width: $bp-largest) {
+    font-size: 50%;        // 100% -> 16px, 8px  ? 800 / 16 = 50%
+  }
 }
 
 body {
@@ -41,7 +49,7 @@ body {
   // as tall as their contents
   // NOTES: you must know how the html is going to adapt into this grid
   // meaning that if you add a new tag in our grid, the whole placement
-  // of the html is going to be completly misaligned 
+  // of the html is going to be completly misaligned
   grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
 
   // we make 8 columns, as its a common standard to place our
@@ -56,4 +64,18 @@ body {
     [sidebar-end full-start] minmax(6rem, 1fr)
     [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])   // 1140/8 ~ 140 px ~ 14rem
     [center-end] minmax(6rem, 1fr) [full-end];
+
+  @media only screen and (max-width: $bp-large) {
+
+    // grid configuration to move the sidebar on top of the web page
+    grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content);
+
+    // layouts must be named, do note that we removed a column, and since we removed
+    // a column our entire grid configuration has now changed (numeric column label)
+    // but the names are intact.
+    grid-template-columns:
+      [full-start] minmax(6rem, 1fr)
+      [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])   // 1140/8 ~ 140 px ~ 14rem
+      [center-end] minmax(6rem, 1fr) [full-end];
+  }
 }

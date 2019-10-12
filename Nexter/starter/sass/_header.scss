@@ -15,11 +15,19 @@
   // This grid is quite clever. This is how we produce
   // a similar effect as justify-content, but without
   // extra containers between the element 'sections'; The title and
-  // the button spans the remaining space making a 'center' like placement
+  // button spans the remaining space making a 'center' like placement
   // layout.
-  grid-template-rows: 1fr min-content 6rem 1fr;
-  // we want to limit this grid to its max content and not the container width
-  // grid-template-columns: max-content;
+
+  // take a look at the third row; when you shrink down the layout
+  // a line break its going to happen, at that point, the row height its
+  // going to be greater than 60 pixels, ands thats why set it to its
+  // minimun content
+
+  grid-template-rows: 1fr min-content minmax(min-content, 6rem) 1fr;
+
+  // make the column width to vary from its maximun content (no line breaks), into its
+  // minumun content (content with line breaks)
+  grid-template-columns: minmax(min-content, max-content);
   grid-row-gap: 1.5rem;
   justify-content: center; // grid template column is quite unncessary
                            // (course mistake)
@@ -66,7 +74,10 @@
     justify-items: center;
 
     img {
-      height: 2.5rem;
+      // you must set a variable height, otherwise the grid wont be able to
+      // chunk to its desired size
+      max-height: 2.5rem;
+      max-width: 100%;
 
       // dim the image
       filter: brightness(70%);
