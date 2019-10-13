@@ -4,23 +4,36 @@
 
   margin: 15rem 0;
 
-  // grid elements can become grid elements as well
-  display: grid;
+  @supports(display: grid) {
+    // grid elements can become grid elements as well
+    display: grid;
 
-  // grid-template-columns: repeat(3, 1fr); https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/
-  // this is how we make this grid responsive without media queries 
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    // grid-template-columns: repeat(3, 1fr); https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/
+    // this is how we make this grid responsive without media queries
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 6rem;
 
-  grid-gap: 6rem;
-
-  // align-items by default is set to stretch. We need the text boxes to
-  // be aligned, but as each content box has a different height, 'stretch'
-  // will try to make them span the entire row height and to kind of
-  // 'center align' them, breaking the simmetry we want to apply.
-  align-items: start;
+    // align-items by default is set to stretch. We need the text boxes to
+    // be aligned, but as each content box has a different height, 'stretch'
+    // will try to make them span the entire row height and to kind of
+    // 'center align' them, breaking the simmetry we want to apply.
+    align-items: start;
+  }
 }
 
 .feature {
+
+  // css grid (fallback)
+  float: left;
+  width: 33.333%;
+  margin-bottom: 6rem;
+
+  @supports(display: grid) {
+    // fallback reset
+    width: auto;
+    margin-bottom: 0;
+  }
+
   display: grid;
   grid-template-columns: min-content 1fr;
   grid-row-gap: 1.5rem;
