@@ -12,6 +12,10 @@
   justify-items: center;
   grid-row-gap: 2rem;
 
+  @media only screen and (max-width: $bp-medium) {
+    grid-column: 1 / -1;
+  }
+
   &__list {
     display: grid;
     // take a look at the placement of the items: it was completly unnecessary
@@ -23,6 +27,18 @@
     // the margin change as the view port does
     grid-row-gap: 5vh;
     align-items: center;
+
+    @media only screen and (max-width: $bp-medium) {
+
+      // you can repeat more than one grid track inside the 'repeat' function
+      grid-template-columns: repeat(3, min-content max-content);
+    }
+
+    @media only screen and (max-width: $bp-small) {
+
+      // re-establish the old behaviour
+      grid-template-columns: min-content max-content;
+    }
   }
 
   &__img {

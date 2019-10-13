@@ -18,6 +18,8 @@ $font-display: 'Josefin Sans', sans-serif;
 // RESPONSIVE BREAKPOINTS
 $bp-largest: 75em;          // 1200px, if 1em -> 16px, 1200px ? 1200px / 16.
 $bp-large: 62.5em;          // 1000px
+$bp-medium: 50em;           // 800px
+$bp-small: 37.5em;          // 600px
 
 *,
 *::before,
@@ -77,5 +79,17 @@ body {
       [full-start] minmax(6rem, 1fr)
       [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])   // 1140/8 ~ 140 px ~ 14rem
       [center-end] minmax(6rem, 1fr) [full-end];
+  }
+
+  @media only screen and (max-width: $bp-medium) {
+
+    // new row for the header right content.
+    // the second row is calculated dinamically to fit the entire viewport height
+
+    // we removed the rest of the grid configuration, as they are all set as
+    // 'min content'. The '40vw' has been change to min content as it wont
+    // fit its content in such a small space, and hence we have got 6 times
+    // 'min-content' rows, which is the system default, and thus, we removed them.
+    grid-template-rows: 6rem calc(100vh - 6rem);
   }
 }

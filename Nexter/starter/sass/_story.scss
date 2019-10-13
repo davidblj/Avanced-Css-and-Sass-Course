@@ -5,10 +5,16 @@
     background-color: $color-primary;
     grid-column: full-start / col-end 4;
     background-image: linear-gradient(rgba($color-primary, .5), rgba($color-primary, .5)), url(../img/back.jpg);
+    background-size: cover;
 
     display: grid;
     grid-template-rows: repeat(6, 1fr);
     grid-template-columns: repeat(6, 1fr);
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 1 / -1;
+      padding: 6rem;
+    }
   }
 
   &__img--1 {
@@ -17,6 +23,12 @@
     grid-column: 2 / 6;  // images wont fit the entire area, to keep the aspect ratio.
     align-items: center; // and so we center the image inside the area we assign to it
     box-shadow: 0 2rem 5rem rgba(#000, .1);
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 1 / 5;
+      grid-row: 1 / -1;
+      width: 100%;
+    }
   }
 
   // and this is how you overlap one image on top of another.
@@ -26,6 +38,12 @@
     grid-column: 4 / 7;
     z-index: 20;
     box-shadow: 0 2rem 5rem rgba(#000, .2);
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-row: 1 / -1;
+      width: 100%;
+      transform: scale(1.2);
+    }
   }
 
   &__content {
@@ -50,6 +68,11 @@
     align-content: center;
     justify-items: start;
     */
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 1 / -1;
+      grid-row: 5 / 6;
+    }
   }
 
   &__text {
