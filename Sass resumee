@@ -1,0 +1,211 @@
+
+current: 25
+
+TODO: bem methodology
+TODO: 7-1 pattern
+
+TODO: Sass deep down
+		- mixin (@include)
+		- extends 
+		- functions (direct call)
+				
+
+TODO: CSS (attribute selector)
+TODO: image responsiveness deep down 
+TODO: atomic design
+
+------------ 1. Natours ------------
+
+Theory: 
+
+   How CSS works (css workflow.png)
+
+      load html
+      parse html (decode and create our DOM)  
+      load CSS (
+         Resolve conflicting css values (creating something called the cascade)
+         compute final units (e.g. % to px)
+      )
+      store the CSS Object model / CSSOM (tree like structure)
+      The CSSOM and the DOM, forms the 'Render tree'
+      website render (through an algorithm called the visual formatting model)
+      final rendering (?)
+
+   Cascade and specificity (conflict resolution.png)
+
+      The cascade is the resulting stylesheet of resolved conflicts for
+      elements that apply more than one stylesheet (the styles comes from
+      the author, the user/modified browser styles and the user agent/browser).   
+
+         1. They are resolved by their level of importance
+
+            user !important
+            author !important
+            user declarations
+            author declarations
+            user agent declarations
+
+         2. specificity (only if the applied rules have the same importance)
+			
+            (inline styles, id, classes/pseudo-classes/attributes, elements/pseudo-elements)
+            
+            	e.g 
+            	
+					( ... , [class]#id-name , .class :pseudo-class, element)
+				
+			The specificty is read from left to right, whover is higher in the chain,
+			its going to hold its place as the final applied class
+			
+			This calculation is performed on every CSS declarations that falls into that element. 								
+
+         3. source order (only if the applied rules have the same specificity)
+         
+         	The final declaration its going to be used
+
+		Note:
+		
+			the universal selector do not have an specificity value
+						
+	
+	Value processing (value processing.png)
+	
+		any value goes through a 5 stage process down into its final value.	
+
+			- All units are processed in stage 4 ; a % is not a unit and hence not computed on this stage.
+			
+			- Stage 1 and 2 is skipped if there is no declared value.
+		
+	Cascading and specificity example (specifity example.png)						
+				
+	Guide of Relative units to Absolute units (units.png)	
+
+		% is computed to its parent font size		
+		
+	
+		em (as a font value) is relative to its parent font size value		
+		
+		rem (as a font value) is relative to its root font size value
+		
+		
+		em (as a length value) is relative to the current element font size
+		
+		rem (as a length value) is relative to its root font size (!)
+		
+
+	How does inheritance works (inheritance.png)	
+	
+		knowing before hand that all properties must have a value:
+		
+			cascaded values are of higher priority than inherited values (declared values stop inheritance)
+		
+			if there is no cascaded values, and if the property is indeed an inheritable property
+			then, that value property is inherited
+			
+			unheritable properties default to its initial value (e.g. 0px for paddings and margins)
+		
+		
+		- text related properties are usually inherited
+		- computed values are inherited, and not declared values (e.g. computed value of percentages)		
+		
+		- the 'inheritance' keyword, forces the inheritance
+		- the 'initial' keyword resets a property to its initial value
+		
+	Box sizing (box model height and width.png)
+	
+		by setting this property to border-box, the width or height is going to include not just the content,
+		but also the padding area. 
+		
+	Box types (box types.png)
+	
+		There are 3 types of box types
+		
+			block
+				100% of parents width
+				Box model applies normally
+							
+			inline block
+				Occupies only content space
+				No line breaks
+				Box model applies normally
+				
+			inline
+				Occupies only contents space
+				No line breaks
+				Box model has no height or width
+				paddings and margins only apply to horizontal values
+
+	Positioning scheme (positioning scheme.png)
+		
+		notes : floats shift all inline elements and text
+				Parent wont adjust its height to floated elements
+		
+
+	Design principles :  Fluid Grids (CSS grid, flexbox), 
+					     Flexible images, 
+					     Media queries
+	
+						
+		
+Format :
+
+
+	{feature resumee}
+	css declarations (grouped by line)
+	[file example, classes]
+	
+	
+Natours
+
+	Part 1
+
+		1. Linear gradient, 
+		   clip-path:polygon, 
+		   background-size, cover 
+		[ (ch1_ch3)-style, .header ]
+
+		2. transform:translate 
+		[ (ch1_ch3)-style, .header__text-box]
+
+		3. display:block,
+		   animation,  
+		   animation-name, duration, timing-function, iteratation-count, fill-mode
+		[ (ch1_ch3)-style, .heading-primary--main, .btn--animated]
+
+		4. @keyframes
+		[ (ch1_ch3)-style, moveInLeft]
+
+		5. box-shadow (with black transparency)    
+		[ (ch1_ch3)-style, .btn:active]
+		
+
+	Big feature #1
+
+		5. { a tag transformed into a button with ANIMATIONS on AFTER pseudo elements },
+		   { pseudo element construction } 
+		   display:inline-block,
+		   transition
+		[ (ch1_ch3)-style, .btn:link, .btn:hover, .btn-active, btn::after, .btn:hover::after, .btn--animated ]    
+
+
+	Part 2
+
+		6. { Responsive size set up with rems (and with accesibility in mind) }
+		   { Normalizing of margins and paddings }
+		   { box sizing inheritance as a overridable property through inheritance }
+		[ (ch1_ch3)-style, html, *, *::after, *::before ] 	
+
+	Part 3
+
+		7. { Grid with floats }
+		   { Sass calc function }	
+		   { Attribute selector }
+		   { :not(:last-child) }
+	   [ _grid ]
+		   
+		   
+		   
+		   
+		   
+		   
+
+

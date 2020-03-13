@@ -7,7 +7,9 @@ Dark green: #28b485
 
 */
 /* a reset to the padding and margin that a web navigator sometimes sets to some elements
-   box-sizing: border-box == border and padding are included in the the width or height of the box*/
+   box-sizing: border-box == the border and padding are included in the the width
+   or height of the box */
+
 *,
 *::after
 *::before {
@@ -16,7 +18,8 @@ Dark green: #28b485
 
     /* box-sizing has been moved to the body as an inherited property. Since This
     value does not support inheritance by default, we must set it as an inherited property
-    on all elements. This is more maintainable, now, a module can overwrite this property*/
+    on all elements. A much more maintainable approach, and nevertheless, at any time
+    a module can overwrite this property*/
     box-sizing: inherit;
 }
 
@@ -41,6 +44,7 @@ body {
     /* content padding */
     padding: 3rem;
     box-sizing: border-box;
+
 }
 
 /* polygons: https://bennettfeely.com/clippy/*/
@@ -85,7 +89,7 @@ body {
     top: 40%;
     left: 50%;
 
-    /* box center alignment: to the relative position, move in x -50% of the width and in y -50% the height of this element. This value is computed in the top left corner of itself*/
+    /* box center alignment: to the relative position, move in x, -50% of the width and in y, -50% the height of this element. This value is computed in the top left corner of itself*/
     transform: translate(-50%, -50%);
 
     /*  button alignment with "display: inline-block"*/
@@ -246,7 +250,7 @@ body {
     /* put this element behind the parent element */
     z-index: -1;
 
-    /* every property that changes our after element, will be animated */
+    /* every property that change in this after element, its going to be animated */
     transition: all .4s;
 }
 
@@ -262,7 +266,7 @@ body {
 }
 
 .btn--animated {
-    /* note:  the last value is a delay */
+    /* note:  name duration timing-function delay */
     animation: moveInButton .5s ease-out .75s;
 
     /* to hide our button when the animation has not even started, we set the style
